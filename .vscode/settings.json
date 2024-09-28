@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "FPoly Adventure.sln"
+    "dotnet.defaultSolution": "FPoly-Adventure.sln"
 }
