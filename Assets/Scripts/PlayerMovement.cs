@@ -20,6 +20,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    private void FixedUpdate() {
+        Moving();
+    }
+    private void Moving() {
         float x =  Input.GetAxis("Horizontal");
         rb2d.velocity = new Vector2(speed * x, rb2d.velocity.y);
         animator.SetFloat("isRunning", Mathf.Abs(x));
@@ -29,5 +35,5 @@ public class PlayerMovement : MonoBehaviour
         if (x < 0) {
             spriteRenderer.flipX = true;
         }
-    }
+    }   
 }

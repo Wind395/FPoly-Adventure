@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - InSideP
+  - OutSideP
   layers:
   - Default
   - TransparentFX
@@ -43,6 +45,9 @@ TagManager:
     locked: 0
   - name: Decorations
     uniqueID: 237533585
+    locked: 0
+  - name: Decorations 2
+    uniqueID: 4083252067
     locked: 0
   - name: Foreground
     uniqueID: 4029750211

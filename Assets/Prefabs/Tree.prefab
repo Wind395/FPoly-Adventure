@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 370241733809269751}
   - component: {fileID: 5988174344274968650}
-  - component: {fileID: 8990782070881785492}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -26,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427097781711159829}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.3418837, y: 0.4227835, z: 0.0022828323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -72,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -265217085
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -11127580, guid: f51ec1a6e5f891140adeefd37d3cd6c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -85,65 +84,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8990782070881785492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1427097781711159829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_ComponentVersion: 1
-  m_HasRenderer: 1
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 000000009179280ec31b31f0575ce4f5
-  m_ShapePath:
-  - {x: -0.122356415, y: -1.3251414, z: 0}
-  - {x: -0.12034798, y: -1.0725718, z: 0}
-  - {x: -0.11962414, y: -1.0005364, z: 0}
-  - {x: -0.123770714, y: 0.3788191, z: 0}
-  - {x: -0.22663403, y: 0.42714405, z: 0}
-  - {x: -0.47407722, y: 0.42752826, z: 0}
-  - {x: -0.47362328, y: 0.47651082, z: 0}
-  - {x: -0.6706629, y: 0.6746966, z: 0}
-  - {x: -0.72476196, y: 0.6751831, z: 0}
-  - {x: -0.7245636, y: 0.92377466, z: 0}
-  - {x: -0.6757679, y: 0.92377466, z: 0}
-  - {x: -0.4741783, y: 1.1258748, z: 0}
-  - {x: -0.47413826, y: 1.2237463, z: 0}
-  - {x: -0.1256342, y: 1.5264264, z: 0}
-  - {x: -0.12526512, y: 1.5750797, z: 0}
-  - {x: 0.123539925, y: 1.5748682, z: 0}
-  - {x: 0.12356758, y: 1.5248773, z: 0}
-  - {x: 0.32446194, y: 1.3274276, z: 0}
-  - {x: 0.3749485, y: 1.276347, z: 0}
-  - {x: 0.42543507, y: 1.2258604, z: 0}
-  - {x: 0.47413826, y: 1.2252665, z: 0}
-  - {x: 0.47507763, y: 1.124917, z: 0}
-  - {x: 0.67507553, y: 0.92475855, z: 0}
-  - {x: 0.72444534, y: 0.92498136, z: 0}
-  - {x: 0.7255993, y: 0.6758654, z: 0}
-  - {x: 0.676178, y: 0.6760344, z: 0}
-  - {x: 0.6758251, y: 0.57496566, z: 0}
-  - {x: 0.6275387, y: 0.5756271, z: 0}
-  - {x: 0.6248932, y: 0.52535653, z: 0}
-  - {x: 0.57660675, y: 0.52535653, z: 0}
-  - {x: 0.575284, y: 0.4764089, z: 0}
-  - {x: 0.47457886, y: 0.473108, z: 0}
-  - {x: 0.47524834, y: 0.4256811, z: 0}
-  - {x: 0.22489738, y: 0.424052, z: 0}
-  - {x: 0.122107506, y: 0.37418818, z: 0}
-  - {x: 0.12211132, y: -1.3246205, z: 0}
-  m_ShapePathHash: -11244827
-  m_Mesh: {fileID: 0}
-  m_InstanceId: 30428
-  m_LocalBounds:
-    m_Center: {x: 0.00041866302, y: 0.124969125, z: 0}
-    m_Extent: {x: 0.7251806, y: 1.4501106, z: 0}
