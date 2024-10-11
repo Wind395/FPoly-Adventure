@@ -272,9 +272,11 @@ GameObject:
   - component: {fileID: 3856491997769559097}
   - component: {fileID: 1287752337785213360}
   - component: {fileID: 3557010699410307412}
-  - component: {fileID: 5311088392994704918}
   - component: {fileID: 5976658281587658713}
   - component: {fileID: 2230980276369120602}
+  - component: {fileID: 5311088392994704918}
+  - component: {fileID: 683514703739298561}
+  - component: {fileID: 494102313501239070}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -423,19 +425,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5311088392994704918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7245768024067510124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac4b4d6138cec34da50b33edf591f0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
 --- !u!95 &5976658281587658713
 Animator:
   serializedVersion: 5
@@ -507,6 +496,44 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &5311088392994704918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7245768024067510124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac4b4d6138cec34da50b33edf591f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+--- !u!114 &683514703739298561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7245768024067510124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb75aa05b68f07478a5d1b71e5d7864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stairUI: {fileID: 0}
+--- !u!114 &494102313501239070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7245768024067510124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea2d0cd501fdc441a060327a7396c36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7802382887633002424
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InSideP
   - OutSideP
+  - Stair
   layers:
   - Default
   - TransparentFX

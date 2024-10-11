@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
+using System.ComponentModel;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
+    public static GameManager instance;
+    public static Vector3 lastPositionSceneFrontofP;
+    public static Vector3 lastPositionSceneFloor1;
+    public static Vector3 lastPositionSceneFloor2;
+    public static Vector3 lastPositionSceneFloor3;
+    public static Vector3 lastPositionSceneFloor4;
 
     private void Awake() {
-        if (_instance != null && _instance != this) {
+        if (instance != null && instance != this) {
             Destroy(gameObject);
         } else {
-            _instance = this;
+            instance = this;
+            DontDestroyOnLoad(this);
         }
     }
     // Start is called before the first frame update
@@ -27,7 +34,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void ChangeScene(string nameScene) {
+    public void ChangeScene(string nameScene) {
         SceneManager.LoadScene(nameScene);
     }
 }
