@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5579830489226230646}
   m_Layer: 0
   m_Name: Door To Go Up-Downstair
-  m_TagString: Untagged
+  m_TagString: Stair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

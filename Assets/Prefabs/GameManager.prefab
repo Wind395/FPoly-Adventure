@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3704449513471950053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3150229532233652239}
+  - component: {fileID: 5796015028174233609}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3150229532233652239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3704449513471950053}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.879913, y: -0.30008405, z: 0.05895673}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5796015028174233609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3704449513471950053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65f886016107d7439937a1dffa232eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paper: 0
+  beeBadge: 0
+  isGirl: 0
+  isDoor: 0
+  isBee: 0
+  papers:
+  - {fileID: 5480093802281524349, guid: 6026b2ce83e4ad849b1bfde2223c4816, type: 3}
+  - {fileID: 2243493730586458974, guid: 460b458f95845d44a828ffa82ee19ac2, type: 3}
+  - {fileID: 830880169148366820, guid: b1316b620e8526b4aa632ec2877e1724, type: 3}
+  - {fileID: 1872235721754354299, guid: efe3e74da77530442a93c6258eca915b, type: 3}
+  bees: []

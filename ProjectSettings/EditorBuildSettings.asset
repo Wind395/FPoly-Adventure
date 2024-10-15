@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MenuUI/SignInUp.unity
+    guid: 2cb645339023f534493b8bf891bdb5e3
+  - enabled: 1
+    path: Assets/Scenes/MenuUI/Menu.unity
+    guid: cd87f1c7ec1d24e4781cc5aa29a650df
+  - enabled: 1
     path: Assets/Scenes/In Game/Front of P.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -20,4 +26,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/In Game/Floor 4.unity
     guid: 28a9bde336918564eb8255691433d4ae
+  - enabled: 1
+    path: Assets/Scenes/In Game/P202.unity
+    guid: 717b1acb4bc6b33418f9c0582accc430
+  - enabled: 1
+    path: Assets/Scenes/In Game/P203.unity
+    guid: 617593aa3d243564eb236acfdf21d49e
+  - enabled: 1
+    path: Assets/Scenes/In Game/P301.unity
+    guid: 022b61663d3e18944bec304d59cdaf9a
+  - enabled: 1
+    path: Assets/Scenes/In Game/P404.unity
+    guid: 24c3c31318f23484398eb5d345daf19f
   m_configObjects: {}

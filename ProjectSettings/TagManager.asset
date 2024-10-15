@@ -7,6 +7,16 @@ TagManager:
   - InSideP
   - OutSideP
   - Stair
+  - Ghost
+  - Girl
+  - Door
+  - Lobby
+  - P203
+  - Paper
+  - P202
+  - P301
+  - P404
+  - Golden Bee
   layers:
   - Default
   - TransparentFX
