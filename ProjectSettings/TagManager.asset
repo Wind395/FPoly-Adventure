@@ -17,6 +17,8 @@ TagManager:
   - P301
   - P404
   - Golden Bee
+  - Lobby3
+  - Lobby4
   layers:
   - Default
   - TransparentFX

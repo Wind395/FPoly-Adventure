@@ -81,6 +81,12 @@ public class PlayerSceneManager : MonoBehaviour
             GameManager.lastPositionSceneP203 = transform.position;
             GameManager.instance.ChangeScene("Floor 2");
         }
+        if (other.gameObject.CompareTag("Lobb3") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) {
+            GameManager.instance.ChangeScene("Floor 3");
+        }
+        if (other.gameObject.CompareTag("Lobb4") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) {
+            GameManager.instance.ChangeScene("Floor 4");
+        }
         if (other.gameObject.CompareTag("Stair") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) 
 
         {

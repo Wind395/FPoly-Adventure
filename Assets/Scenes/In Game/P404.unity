@@ -1245,7 +1245,7 @@ GameObject:
   - component: {fileID: 769028484}
   m_Layer: 0
   m_Name: Class Door Go Ouside
-  m_TagString: Lobby
+  m_TagString: Lobby4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8848,7 +8848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1872235721754354299, guid: efe3e74da77530442a93c6258eca915b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3717606615167268726, guid: efe3e74da77530442a93c6258eca915b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8889,6 +8889,10 @@ PrefabInstance:
     - target: {fileID: 3717606615167268726, guid: efe3e74da77530442a93c6258eca915b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5346453079858707832, guid: efe3e74da77530442a93c6258eca915b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -720,7 +720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 830880169148366820, guid: b1316b620e8526b4aa632ec2877e1724, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8772418668780432801, guid: b1316b620e8526b4aa632ec2877e1724, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1859,7 +1859,7 @@ GameObject:
   - component: {fileID: 1253858681}
   m_Layer: 0
   m_Name: Class Door Go Ouside
-  m_TagString: Lobby
+  m_TagString: Lobby3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
