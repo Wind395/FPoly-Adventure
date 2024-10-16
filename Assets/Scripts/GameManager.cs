@@ -9,14 +9,20 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    // Các Scene cần Load lại khi chuyển Scene
     public static Vector3 lastPositionSceneFrontofP;
     public static Vector3 lastPositionSceneFloor1;
     public static Vector3 lastPositionSceneFloor2;
     public static Vector3 lastPositionSceneFloor3;
     public static Vector3 lastPositionSceneFloor4;
     public static Vector3 lastPositionSceneP203;
+    //--------------------------------
 
+    // Lấy Tên nhân vật từ phần đăng nhập để lưu điểm
     public static string getUsername;
+
+    // Các biến để lưu điểm
 
     public int paper = 0;
     public int beeBadge = 0;
@@ -27,7 +33,7 @@ public class GameManager : MonoBehaviour
     private float lastTime;
     //-------
 
-
+    // Kích hoại sau khi nói chuyện với NPC để không bị trùng lặp
     public bool isGirl = false;
     public bool isDoor = false;
     public bool isBee = false;
@@ -40,6 +46,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject beeFPoly;
 
     private void Awake() {
+        // Singleton
         if (instance != null && instance != this) {
             Destroy(gameObject);
         } else {
@@ -48,7 +55,7 @@ public class GameManager : MonoBehaviour
         }
 
 
-
+        // So sánh điều kiện để sinh ra các Paper khi kích hoạt scene chỉ định
         if (ConversationManager.nextConversation >= 2) {
             if (SceneManager.GetActiveScene().name == "P203") {
                 Instantiate(papers[0], new Vector2(1.7f, 0.5f), Quaternion.identity);
@@ -82,6 +89,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Chức năng chuyển Scene để tái sử dụng nhiều lần
     public void ChangeScene(string nameScene) {
         SceneManager.LoadScene(nameScene);
     }

@@ -15,6 +15,7 @@ public class PlayerSceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Khi quay về scene cũ thì Load lại vị trí được lưu trước đó
         if (SceneManager.GetActiveScene().name == "Front of P") {
             transform.position = GameManager.lastPositionSceneFrontofP;
         }
@@ -42,12 +43,12 @@ public class PlayerSceneManager : MonoBehaviour
         {
             stairUI.SetActive(false);
         }
-
-
-
     }
 
     private void OnTriggerStay2D(Collider2D other) {
+
+        // Chuyển Scene và Save vị trí các Scene trước đó trước khi chuyển Scene
+
         if (other.gameObject.CompareTag("InSideP") && Input.GetKeyDown(KeyCode.Return) && IsMoving()) 
         {
             Debug.Log("Changed");
@@ -55,7 +56,6 @@ public class PlayerSceneManager : MonoBehaviour
             GameManager.instance.ChangeScene("Floor 1");
         }
         if (other.gameObject.CompareTag("OutSideP") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) 
-
         {
             Debug.Log("Changed");
             GameManager.lastPositionSceneFloor1 = transform.position;
@@ -81,14 +81,13 @@ public class PlayerSceneManager : MonoBehaviour
             GameManager.lastPositionSceneP203 = transform.position;
             GameManager.instance.ChangeScene("Floor 2");
         }
-        if (other.gameObject.CompareTag("Lobb3") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) {
+        if (other.gameObject.CompareTag("Lobby3") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) {
             GameManager.instance.ChangeScene("Floor 3");
         }
-        if (other.gameObject.CompareTag("Lobb4") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) {
+        if (other.gameObject.CompareTag("Lobby4") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) {
             GameManager.instance.ChangeScene("Floor 4");
         }
         if (other.gameObject.CompareTag("Stair") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) 
-
         {
             stairUI.SetActive(true);
         }
@@ -100,6 +99,7 @@ public class PlayerSceneManager : MonoBehaviour
     }
 
     public void OnButtonClick(int index) {
+        // Save và chuyển Scene theo các tầng
         if (index == 1) {
             GameManager.lastPositionSceneFloor1 = transform.position;
             GameManager.instance.ChangeScene("Floor 1");
@@ -118,7 +118,8 @@ public class PlayerSceneManager : MonoBehaviour
         }
     }
 
+    // Chắc là rác do TriggerStay như ...
     private bool IsMoving() {
-    return Input.GetAxis("Horizontal") == 0 || Input.GetAxis("Vertical") == 0;
+        return Input.GetAxis("Horizontal") == 0 || Input.GetAxis("Vertical") == 0;
 }
 }

@@ -8,10 +8,17 @@ using UnityEngine.EventSystems;
 public class ConversationManager : MonoBehaviour, IPointerClickHandler
 {
     public static ConversationManager Instance;
+
+    // Tạo List Save các line của cuộc trò chuyện
     [SerializeField] private List<ConversationLine> conversations = new List<ConversationLine>();
+    //------------
     [SerializeField] private TextMeshProUGUI speaker;
     [SerializeField] private TextMeshProUGUI content;
+
+    // Biến này sử dụng để đếm số line khi nói chuyện
     public static int currentConversationIndex = 0;
+
+    // Biến này sử dụng để lưu trữ số line cuối cùng đã nói
     public static int nextConversation = 0;
     [SerializeField] private GameObject chatboxUI;
 
@@ -39,6 +46,8 @@ public class ConversationManager : MonoBehaviour, IPointerClickHandler
         
     }
 
+
+    // Load cuộc trò chuyện từ file txt
     public void LoadConversation(string path) {
         conversations.Clear();
         TextAsset loadText = Resources.Load<TextAsset>(path);
@@ -69,11 +78,15 @@ public class ConversationManager : MonoBehaviour, IPointerClickHandler
         }
     }
 
+
+    // Nhấn chuột để tiến tới câu tiếp theo
     public void OnPointerClick(PointerEventData eventData)
     {
         GetNextConversation();
         currentConversationIndex++;
     }
+
+    // Lấy câu tiếp theo từ file và cho vào TextMeshProUGUI
 
     public void GetNextConversation() {
         if (currentConversationIndex < conversations.Count) {
@@ -90,6 +103,7 @@ public class ConversationManager : MonoBehaviour, IPointerClickHandler
             currentConversationIndex = 0;
             Debug.Log(currentConversationIndex);
             Debug.Log(nextConversation);
+            // Xoá tất cả cuộc nói chuyện trước đó
             conversations.Clear();
         }
     }

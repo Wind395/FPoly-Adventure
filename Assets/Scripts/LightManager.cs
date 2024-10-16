@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class LightManager : MonoBehaviour
 {
-    // List of objects that should not be turned off
+    // Danh sách các list được loại trừ để tắt
     [SerializeField] private GameObject[] exemptObjects;
 
     // Update is called once per frame
@@ -17,25 +17,30 @@ public class LightManager : MonoBehaviour
         }
     }
 
-    // Method to turn on or off all lights in the scene
+    // Phương thức sử dụng chức năng bật tắt đèn
     private void TurnOnOffAllLights()
     {
-        // Find all Light2D components in the scene
+        // Tìm các Object có Component là Light2D
         Light2D[] lights = FindObjectsOfType<Light2D>();
 
-        // Toggle the enabled state of each light, except for exempt objects
+        // Liệt kê các Object được loại trừ
+
         foreach (Light2D light in lights)
         {
+            // Kiểm tra xem Object có trong danh sách loại trừ hay không bằng cách mỗi object có biến isExempt
+
             bool isExempt = false;
             foreach (GameObject exemptObject in exemptObjects)
             {
+                //  Nếu Object có trong danh sách loại trừ thì biến isExempt sẽ được thiết lập thành True
                 if (light.gameObject == exemptObject)
                 {
+                    // Khi Object đó có isExempt = true thì sẽ được loại trừ
                     isExempt = true;
                     break;
                 }
             }
-
+            // Nếu không thì ...
             if (!isExempt)
             {
                 light.enabled = !light.enabled;

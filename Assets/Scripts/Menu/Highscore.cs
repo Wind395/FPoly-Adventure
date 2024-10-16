@@ -30,13 +30,14 @@ public class Highscore : MonoBehaviour
 
 
     void Start() {
+        // Load highscores từ file và hiển thị
         highscoreFilePath = Path.Combine(Application.persistentDataPath, "highscores.txt");
         Debug.Log("Highscore file path: " + highscoreFilePath);
         LoadHighscores();
         DisplayHighscores();
     }
 
-
+    // Hiển thị điểm trong game
     void DisplayHighscores() {
         foreach (Transform child in contentPanel) {
             Destroy(child.gameObject); // Clear existing rows
@@ -49,13 +50,18 @@ public class Highscore : MonoBehaviour
             texts[1].text = entry.score.ToString(); // Assuming the second text element is for score
         }
     }
+
+    // Lưu điểm cao nhất
     void SaveHighscores() {
         using (StreamWriter writer = new StreamWriter(highscoreFilePath)) {
+            // Lấy các giá trị trong list để cho vào text
             foreach (var entry in highscoreEntries) {
                 writer.WriteLine($"{entry.name},{entry.score}");
             }
         }
     }
+
+    // Lấy tên và điểm cao nhất trong file để Add vào list
 
     void LoadHighscores() {
     if (File.Exists(highscoreFilePath)) {
