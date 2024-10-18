@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void FixedUpdate() {
         Moving();
@@ -35,17 +35,6 @@ public class PlayerMovement : MonoBehaviour
         } 
         if (x < 0) {
             spriteRenderer.flipX = true;
-        }
-    }
-
-
-    private void OnTriggerStay2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Paper")) {
-            if (Input.GetKeyDown(KeyCode.F)) {
-                GameManager.instance.CollectPapers();
-                Debug.Log(GameManager.instance.paper);
-                Destroy(other.gameObject);
-            }
         }
     }
 }

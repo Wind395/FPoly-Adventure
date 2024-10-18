@@ -5,6 +5,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 using System.ComponentModel;
 using System;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     public static string getUsername;
 
     // Các biến để lưu điểm
-
+    public TMP_Text paperCount;
     public int paper = 0;
     public int beeBadge = 0;
 
@@ -38,6 +39,9 @@ public class GameManager : MonoBehaviour
     public bool isDoor = false;
     public bool isBee = false;
 
+    //Progression
+    public int _progression;
+
     [SerializeField] private GameObject[] papers;
     [SerializeField] private GameObject[] bees;
 
@@ -47,11 +51,14 @@ public class GameManager : MonoBehaviour
 
     private void Awake() {
         // Singleton
-        if (instance != null && instance != this) {
-            Destroy(gameObject);
-        } else {
+        if (instance == null)
+        {
             instance = this;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject); // Đảm bảo không bị hủy khi chuyển scene
+        }
+        else
+        {
+            Destroy(gameObject); // Hủy đối tượng nếu đã tồn tại
         }
 
 
@@ -77,7 +84,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _progression = 0;
     }
 
     // Update is called once per frame
@@ -102,7 +109,12 @@ public class GameManager : MonoBehaviour
         beeBadge++;
     }
 
-
+    public bool Ending(){
+        if(paper == 4){
+            return true;
+        }
+        return false;
+    }
     public void IsCountingSwitcher(){   //bật/tắt bộ đếm giờ
         if(isCounting == false){
             isCounting = true;

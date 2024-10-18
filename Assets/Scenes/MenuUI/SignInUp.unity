@@ -648,6 +648,7 @@ GameObject:
   - component: {fileID: 424279541}
   - component: {fileID: 424279540}
   - component: {fileID: 424279543}
+  - component: {fileID: 424279544}
   m_Layer: 5
   m_Name: Sign In
   m_TagString: Untagged
@@ -731,6 +732,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 424279544}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: LoadMenuScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &424279541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -784,6 +797,18 @@ MonoBehaviour:
   _image: {fileID: 424279541}
   defaultSprite: {fileID: -1634471767, guid: 62b059c2ab1cbdb42951488d37e7cb87, type: 3}
   pressedSprite: {fileID: 805948595, guid: 62b059c2ab1cbdb42951488d37e7cb87, type: 3}
+--- !u!114 &424279544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424279538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faac80d37a0755f43a0fe8548f186d24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &620337527
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,6 +2417,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957696213}
   m_CullTransparentMesh: 1
+--- !u!1001 &8167799647140497151
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6533803512562957958, guid: b29fe70ce8e74d848babc458efe37c9b, type: 3}
+      propertyPath: m_Name
+      value: MusicManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616126851755975154, guid: b29fe70ce8e74d848babc458efe37c9b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.890839
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616126851755975154, guid: b29fe70ce8e74d848babc458efe37c9b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.7295052
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616126851755975154, guid: b29fe70ce8e74d848babc458efe37c9b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.368933
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616126851755975154, guid: b29fe70ce8e74d848babc458efe37c9b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616126851755975154, guid: b29fe70ce8e74d848babc458efe37c9b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616126851755975154, guid: b29fe70ce8e74d848babc458efe37c9b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616126851755975154, guid: b29fe70ce8e74d848babc458efe37c9b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616126851755975154, guid: b29fe70ce8e74d848babc458efe37c9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616126851755975154, guid: b29fe70ce8e74d848babc458efe37c9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616126851755975154, guid: b29fe70ce8e74d848babc458efe37c9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b29fe70ce8e74d848babc458efe37c9b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2400,3 +2482,4 @@ SceneRoots:
   - {fileID: 956754293}
   - {fileID: 16287993}
   - {fileID: 1728394552}
+  - {fileID: 8167799647140497151}

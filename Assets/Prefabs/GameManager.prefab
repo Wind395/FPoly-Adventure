@@ -44,14 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65f886016107d7439937a1dffa232eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paperCount: {fileID: 0}
   paper: 0
   beeBadge: 0
   isGirl: 0
   isDoor: 0
   isBee: 0
+  _progression: 0
   papers:
   - {fileID: 5480093802281524349, guid: 6026b2ce83e4ad849b1bfde2223c4816, type: 3}
   - {fileID: 2243493730586458974, guid: 460b458f95845d44a828ffa82ee19ac2, type: 3}
   - {fileID: 830880169148366820, guid: b1316b620e8526b4aa632ec2877e1724, type: 3}
   - {fileID: 1872235721754354299, guid: efe3e74da77530442a93c6258eca915b, type: 3}
   bees: []
+  girl: {fileID: 0}
+  tablechair: {fileID: 0}
+  beeFPoly: {fileID: 0}

@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class PlayerSceneManager : MonoBehaviour
 {
     [SerializeField] private GameObject stairUI;
+    [SerializeField] private GameObject lockDoor;
 
     [SerializeField] private Button[] buttons;
 
@@ -43,53 +44,131 @@ public class PlayerSceneManager : MonoBehaviour
         {
             stairUI.SetActive(false);
         }
-    }
-
-    private void OnTriggerStay2D(Collider2D other) {
-
-        // Chuyển Scene và Save vị trí các Scene trước đó trước khi chuyển Scene
-
-        if (other.gameObject.CompareTag("InSideP") && Input.GetKeyDown(KeyCode.Return) && IsMoving()) 
-        {
-            Debug.Log("Changed");
+        if(Input.GetKeyDown(KeyCode.Return) && cFloor1 == true){
             GameManager.lastPositionSceneFrontofP = transform.position;
             GameManager.instance.ChangeScene("Floor 1");
         }
-        if (other.gameObject.CompareTag("OutSideP") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) 
-        {
-            Debug.Log("Changed");
+        if(Input.GetKeyDown(KeyCode.Return) && cFrontOfP == true){
             GameManager.lastPositionSceneFloor1 = transform.position;
             GameManager.instance.ChangeScene("Front of P");
         }
-        if (other.gameObject.CompareTag("P203") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) {
+        if(Input.GetKeyDown(KeyCode.Return) && cP203 == true){
             GameManager.lastPositionSceneFloor2 = transform.position;
             GameManager.instance.ChangeScene("P203");
         }
-        if (other.gameObject.CompareTag("P202") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) {
+        if(Input.GetKeyDown(KeyCode.Return) && cP202 == true){
             GameManager.lastPositionSceneFloor2 = transform.position;
             GameManager.instance.ChangeScene("P202");
         }
-        if (other.gameObject.CompareTag("P301") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) {
+        if(Input.GetKeyDown(KeyCode.Return) && cP301 == true){
             GameManager.lastPositionSceneFloor3 = transform.position;
             GameManager.instance.ChangeScene("P301");
         }
-        if (other.gameObject.CompareTag("P404") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) {
+        if(Input.GetKeyDown(KeyCode.Return) && cP404 == true){
             GameManager.lastPositionSceneFloor4 = transform.position;
             GameManager.instance.ChangeScene("P404");
         }
-        if (other.gameObject.CompareTag("Lobby") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) {
+        if(Input.GetKeyDown(KeyCode.Return) && cFloor2 == true){
             GameManager.lastPositionSceneP203 = transform.position;
             GameManager.instance.ChangeScene("Floor 2");
         }
-        if (other.gameObject.CompareTag("Lobby3") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) {
+        if(Input.GetKeyDown(KeyCode.Return) && cFloor3 == true){
             GameManager.instance.ChangeScene("Floor 3");
         }
-        if (other.gameObject.CompareTag("Lobby4") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) {
+        if(Input.GetKeyDown(KeyCode.Return) && cFloor4 == true){
             GameManager.instance.ChangeScene("Floor 4");
         }
-        if (other.gameObject.CompareTag("Stair") && Input.GetKeyDown(KeyCode.Return)  && IsMoving()) 
-        {
+        if(Input.GetKeyDown(KeyCode.Return) && cStair == true){
             stairUI.SetActive(true);
+        }
+    }
+
+    private bool cFloor1 = false;
+    private bool cFloor2 = false;
+    private bool cFloor3 = false;
+    private bool cFloor4 = false;
+    private bool cFrontOfP = false;
+    private bool cP203 = false;
+    private bool cP202 = false;
+    private bool cP301 = false;
+    private bool cP404 = false;
+    private bool cStair = false;
+    private void OnTriggerEnter2D(Collider2D other) {
+
+        // Chuyển Scene và Save vị trí các Scene trước đó trước khi chuyển Scene
+
+        if(other.gameObject.CompareTag("deochovao")){
+            lockDoor.SetActive(true);
+        }
+        if (other.gameObject.CompareTag("InSideP")){
+            cFloor1 = true;
+        }
+        if (other.gameObject.CompareTag("OutSideP")){
+            cFrontOfP = true;            
+        }
+        if (other.gameObject.CompareTag("P203")) {
+            cP203 = true;            
+        }
+        if (other.gameObject.CompareTag("P202")) {
+            cP202 = true;            
+        }
+        if (other.gameObject.CompareTag("P301")) {
+            cP301 = true;
+        }
+        if (other.gameObject.CompareTag("P404")) {
+            cP404 = true;
+        }
+        if (other.gameObject.CompareTag("Lobby")) {
+            cFloor2 = true;
+        }
+        if (other.gameObject.CompareTag("Lobby3")) {
+            cFloor3 = true;
+        }
+        if (other.gameObject.CompareTag("Lobby4")) {
+            cFloor4 = true;
+        }
+        if (other.gameObject.CompareTag("Stair")) 
+        {
+            cStair = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other) {
+
+        // Chuyển Scene và Save vị trí các Scene trước đó trước khi chuyển Scene
+
+        if (other.gameObject.CompareTag("InSideP")){
+            cFloor1 = false;
+        }
+        if (other.gameObject.CompareTag("OutSideP")){
+            cFrontOfP = false;            
+        }
+        if (other.gameObject.CompareTag("P203")) {
+            cP203 = false;            
+        }
+        if (other.gameObject.CompareTag("P202")) {
+            cP202 = false;            
+        }
+        if (other.gameObject.CompareTag("P301")) {
+            cP301 = false;
+        }
+        if (other.gameObject.CompareTag("P404")) {
+            cP404 = false;
+        }
+        if (other.gameObject.CompareTag("Lobby")) {
+            cFloor2 = false;
+        }
+        if (other.gameObject.CompareTag("Lobby3")) {
+            cFloor3 = false;
+        }
+        if (other.gameObject.CompareTag("Lobby4")) {
+            cFloor4 = false;
+        }
+        if (other.gameObject.CompareTag("Stair")) 
+        {
+            cStair = false;
+        }
+        if(other.gameObject.CompareTag("deochovao")){
+            lockDoor.SetActive(false);
         }
     }
 
