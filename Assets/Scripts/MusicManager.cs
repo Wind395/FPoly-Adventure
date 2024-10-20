@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
 {
@@ -10,6 +13,9 @@ public class MusicManager : MonoBehaviour
     [SerializeField] AudioSource menuMusic; // Nhạc đăng nhập và menu
     [SerializeField] AudioSource gameMusic; // Nhạc màn chơi
     public AudioSource enemyMusic;// nhạc quái 
+
+    public bool isInMenu = true;
+
     private void Awake()
     {
       
@@ -23,7 +29,11 @@ public class MusicManager : MonoBehaviour
         {
             Destroy(gameObject);  // Hủy nếu đã có instance khác
         }
+
+        StopMusic();
+        ResumeGameMusic();
     }
+
 
     private void Start()
     {
@@ -37,6 +47,7 @@ public class MusicManager : MonoBehaviour
             enemyMusic.Stop();
             gameMusic.Stop();  // Dừng nhạc màn chơi (nếu đang phát)
             menuMusic.Play();  // Phát nhạc đăng nhập/menu
+            isInMenu = true;
         }
     }
 
@@ -47,6 +58,7 @@ public class MusicManager : MonoBehaviour
             enemyMusic.Stop(); 
             menuMusic.Stop();  // Dừng nhạc đăng nhập/menu
             gameMusic.Play();  // Phát nhạc màn chơi
+            isInMenu = false;
         }
     }
     public void PlayenemyMusic()
@@ -72,6 +84,27 @@ public class MusicManager : MonoBehaviour
         //gameMusic.Stop();
         enemyMusic.Stop();
     }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded; // Đăng ký sự kiện
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded; // Hủy đăng ký sự kiện
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        StopMusic(); // Dừng nhạc quái khi scene mới được tải
+        if (!isInMenu) {
+            ResumeGameMusic();
+        }
+    }
+
+
+
     public void ResumeGameMusic()
     {
         if (!gameMusic.isPlaying)

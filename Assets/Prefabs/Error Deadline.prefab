@@ -170,11 +170,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   moveSpeed: 2
-  chaseRange: 5
+  chaseRange: 6
   stopRange: 1
-  wanderSpeed: 1
-  leftLimit: -5
-  rightLimit: 5
+  wanderSpeed: 0.6
+  leftLimit: -15.5
+  rightLimit: 12
 --- !u!50 &737736885727158067
 Rigidbody2D:
   serializedVersion: 4

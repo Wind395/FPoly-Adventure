@@ -9,6 +9,7 @@ public class DDOL : MonoBehaviour
     public int _bee;
     public TMP_Text paperText;
     public TMP_Text beeText;
+    
     // Start is called before the first frame update
     void Start()
     {

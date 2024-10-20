@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using System.ComponentModel;
 using System;
 using TMPro;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,9 +25,11 @@ public class GameManager : MonoBehaviour
     public static string getUsername;
 
     // Các biến để lưu điểm
+    string highscoreFilePath;
     public TMP_Text paperCount;
     public int paper = 0;
     public int beeBadge = 0;
+    public bool hasDeadlineCompleted = false;
 
     //Timer & Score
     private float timeCounter;
@@ -49,6 +52,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject tablechair;
     [SerializeField] private GameObject beeFPoly;
 
+
+    [SerializeField] private GameObject[] errorDeadline;
+
     private void Awake() {
         // Singleton
         if (instance == null)
@@ -60,7 +66,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject); // Hủy đối tượng nếu đã tồn tại
         }
-
 
         // So sánh điều kiện để sinh ra các Paper khi kích hoạt scene chỉ định
         if (ConversationManager.nextConversation >= 2) {
@@ -80,19 +85,37 @@ public class GameManager : MonoBehaviour
                 Instantiate(papers[3], new Vector2(8.45f, 0.55f), Quaternion.identity);
             }
         }
+
+        if (ConversationManager.nextConversation >= 3) {
+            if (SceneManager.GetActiveScene().name == "Floor 2" && errorDeadline != null) {
+                errorDeadline[0].SetActive(true);
+            }
+            if (SceneManager.GetActiveScene().name == "Floor 3" && errorDeadline != null) {
+                errorDeadline[1].SetActive(true);
+            }
+            if (SceneManager.GetActiveScene().name == "Floor 4" && errorDeadline != null) {
+                errorDeadline[2].SetActive(true);
+            }
+        }
     }
     // Start is called before the first frame update
     void Start()
     {
         _progression = 0;
+        highscoreFilePath = Path.Combine(Application.persistentDataPath, "highscores.txt");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.H)) {
+            IsCountingSwitcher();
+        }
+
         if(isCounting == true){ //đếm thời gian theo giây
             timeCounter += Time.deltaTime;
             lastTime = timeCounter;
+            Debug.Log(timeCounter);
         }
     }
 
@@ -134,5 +157,13 @@ public class GameManager : MonoBehaviour
         if (score <= 0) {             //giới hạn ko cho điểm âm
             score = 0;
         }
+        string scoreData = $"{getUsername},{score},{lastTime}\n";
+        File.AppendAllText(highscoreFilePath, scoreData);
+    }
+
+    public void Timer() {
+        float minutes = Mathf.Floor(lastTime / 60);
+        float seconds = Mathf.Floor(lastTime % 60);
+        Debug.Log($"{minutes}:{seconds}");
     }
 }

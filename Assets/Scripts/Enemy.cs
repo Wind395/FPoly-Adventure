@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -69,8 +71,6 @@ public class Enemy : MonoBehaviour
         {
             // Nếu đã đến gần nhân vật, quái sẽ dừng lại
             movement = Vector2.zero;
-
-           
         }
         else
         {

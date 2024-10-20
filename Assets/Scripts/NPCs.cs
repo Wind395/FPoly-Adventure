@@ -12,6 +12,8 @@ public class NPCs : MonoBehaviour
 
     public Animator animator;
 
+    [SerializeField] private AudioSource girl;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +31,14 @@ public class NPCs : MonoBehaviour
         if (ConversationManager.nextConversation == 0 && ConversationManager.currentConversationIndex >= 6) {
             animator.SetBool("IsAction", true);
         }
-        if (ConversationManager.nextConversation == 0 && ConversationManager.currentConversationIndex >= 8) {
+        if (ConversationManager.nextConversation == 0 && ConversationManager.currentConversationIndex >= 9) {
             animator.SetBool("IsAction", false);
         }
 
-        if (ConversationManager.nextConversation == 2 && ConversationManager.currentConversationIndex >= 11) {
+        if (ConversationManager.nextConversation == 2 && ConversationManager.currentConversationIndex >= 12) {
+            beeFPoly.SetActive(false);
+        }
+        if (ConversationManager.nextConversation == 3) {
             beeFPoly.SetActive(false);
         }
     }

@@ -13,9 +13,12 @@ public class item : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(pickUp == true && Input.GetKeyDown(KeyCode.F)){
+        if(pickUp == true && gameObject.tag == "Paper" && Input.GetKeyDown(KeyCode.F)){
             GameManager.instance.CollectPapers();
-            Debug.Log(GameManager.instance.paper);
+            Destroy(this.gameObject);
+        }
+        if(pickUp == true && gameObject.tag == "beeBadge" && Input.GetKeyDown(KeyCode.F)){
+            GameManager.instance.CollectBeeBadge();
             Destroy(this.gameObject);
         }
     }
