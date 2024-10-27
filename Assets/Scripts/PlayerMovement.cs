@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
             paperDone.SetActive(true);
         }
         if (SceneManager.GetActiveScene().name == "Ending") {
+            GameManager.instance.Score();
             GameManager.instance.canRun = true;
             Time.timeScale = 1;
         }
@@ -77,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
         GameManager.instance.canRun = false;
         animator.SetFloat("isRunning", 0);
         enemy.SetActive(true);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5.5f);
         paperDone.GetComponent<SpriteRenderer>().enabled = true;
         Time.timeScale = 0;
         GameManager.instance.ChangeScene("Ending");

@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour
     {
         highscoreFilePath = Path.Combine(Application.persistentDataPath, "highscores.txt");
         GameManager.instance.IsCountingSwitcher();
+        ConversationManager.currentConversationIndex = 0;
     }
 
     // Update is called once per frame
@@ -157,7 +158,7 @@ public class GameManager : MonoBehaviour
         if (score <= 0) {             //giới hạn ko cho điểm âm
             score = 0;
         }
-        string scoreData = $"{getUsername},{score},{lastTime}\n";
+        string scoreData = $"\n{getUsername}, {score}";
         File.AppendAllText(highscoreFilePath, scoreData);
     }
 

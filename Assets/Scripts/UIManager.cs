@@ -2,25 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject UI1;
     public CanvasGroup uiGroup; // Gán CanvasGroup từ Panel
     public TMP_Text displayText; // Gán Text từ UI
     public float transitionDuration = 2f; // Thời gian chuyển đổi
     public float displayDuration = 2f; // Thời gian hiển thị văn bản
+    public string[] textContent;
+
+
+    public GameObject UI2;
+    public SpriteRenderer boySpriteRenderer;
+    public Sprite boy;
+
 
     private void Start()
     {
-        StartCoroutine(ShowUI());
+        if (SceneManager.GetActiveScene().name == "Ending") {
+            StartCoroutine(ShowUI());
+        }
+    }
+
+    private void Update() {
+        StartCoroutine(Ending2UI());
     }
 
     private IEnumerator ShowUI()
     {
-        // Hiện UI với màu trắng
+        // Mặc định màu đen
         uiGroup.alpha = 1f;
 
-        // Chuyển đổi dần sang màu đen
+        // Hiện text đầu tiên
+        displayText.text = "Khi tỉnh lại, cậu thấy bản thân đã trở về thế giới thực và được thầy giáo gọi dậy.";
+        yield return new WaitForSeconds(displayDuration);
+
+        // Hiện text thứ hai
+        displayText.text = "Sau tiết học....";
+        // Chuyển đổi mờ dần
         float elapsedTime = 0f;
         while (elapsedTime < transitionDuration)
         {
@@ -30,12 +51,15 @@ public class UIManager : MonoBehaviour
         }
 
         uiGroup.alpha = 0f; // Đặt alpha về 0 sau khi chuyển đổi
+        UI1.SetActive(false);
+    }
 
-        // Hiện text đầu tiên
-        displayText.text = "Text 1";
-        yield return new WaitForSeconds(displayDuration);
-
-        // Hiện text thứ hai
-        displayText.text = "Text 2";
+    private IEnumerator Ending2UI() {
+        if (ConversationManager.nextConversation == 3 && ConversationManager.currentConversationIndex == 7) {
+            boySpriteRenderer.sprite = boy;
+            boySpriteRenderer.flipX = false;
+            yield return new WaitForSeconds(4);
+            UI2.SetActive(true);
+        }
     }
 }

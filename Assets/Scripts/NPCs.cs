@@ -16,15 +16,12 @@ public class NPCs : MonoBehaviour
     public Animator animator;
 
     [SerializeField] private AudioSource girl;
-    private SpriteChange  spriteChange;
 
-    [SerializeField] private SpriteRenderer sprite;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -35,10 +32,10 @@ public class NPCs : MonoBehaviour
         }
 
         // Sử dụng các biến dưới để so sánh và chạy Animation,...
-        if (ConversationManager.nextConversation == 0 && ConversationManager.currentConversationIndex >= 6) {
+        if (ConversationManager.nextConversation == 0 && ConversationManager.currentConversationIndex >= 7) {
             animator.SetBool("IsAction", true);
         }
-        if (ConversationManager.nextConversation == 0 && ConversationManager.currentConversationIndex >= 9) {
+        if (ConversationManager.nextConversation == 0 && ConversationManager.currentConversationIndex >= 10) {
             animator.SetBool("IsAction", false);
         }
         if (ConversationManager.nextConversation == 2 && ConversationManager.currentConversationIndex >= 12) {
@@ -48,10 +45,6 @@ public class NPCs : MonoBehaviour
             beeFPoly.SetActive(false);
         }
 
-        if (ConversationManager.nextConversation == 3 && ConversationManager.currentConversationIndex == 6) {
-            Debug.Log("Change");
-            sprite.flipX = false;
-        }
     }
 
     void Conversation() {
