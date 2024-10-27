@@ -14403,6 +14403,11 @@ MonoBehaviour:
   displayText: {fileID: 1544278774}
   transitionDuration: 5
   displayDuration: 3
+  textContent:
+  - "Khi t\u1EC9nh l\u1EA1i, c\u1EADu th\u1EA5y b\u1EA3n th\xE2n \u0111\xE3 tr\u1EDF
+    v\u1EC1 l\u1EDBp h\u1ECDc c\u0169 v\xE0 \u0111\u01B0\u1EE3c th\u1EA7y gi\xE1o
+    g\u1ECDi d\u1EADy."
+  - "Sau ti\u1EBFt h\u1ECDc...."
   UI2: {fileID: 1299432999}
   boySpriteRenderer: {fileID: 1679567489}
   boy: {fileID: 1189492575, guid: 05b009560b015da4fbddbf717f1ffa30, type: 3}
