@@ -7,6 +7,8 @@ public class FlashLight : MonoBehaviour
 {
 
     private Light2D light2D;
+    [SerializeField] private float offTime;
+    [SerializeField] private float onTime;
     private float timeCount;
     // Start is called before the first frame update
     void Start()
@@ -18,10 +20,10 @@ public class FlashLight : MonoBehaviour
     void Update()
     {
         timeCount += Time.deltaTime;
-        if (timeCount >= 0.5f) {
+        if (timeCount >= offTime) {
             light2D.enabled = false;
         }
-        if (timeCount >= 0.7f) {
+        if (timeCount >= onTime) {
             light2D.enabled = true;
             timeCount = 0f;
         }

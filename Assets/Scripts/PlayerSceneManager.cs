@@ -12,10 +12,17 @@ public class PlayerSceneManager : MonoBehaviour
     [SerializeField] private GameObject lockDoor;
 
     [SerializeField] private Button[] buttons;
+    
+    public Image fadeImage; // Image để làm hiệu ứng fade
+    public float fadeDuration = 1f; // Thời gian hiệu ứng fade
+
+    public GameObject enter;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Bắt đầu với hiệu ứng fade in khi vào scene
+        StartCoroutine(FadeIn());
         // Khi quay về scene cũ thì Load lại vị trí được lưu trước đó
         if (SceneManager.GetActiveScene().name == "Front of P") {
             transform.position = GameManager.lastPositionSceneFrontofP;
@@ -46,37 +53,37 @@ public class PlayerSceneManager : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Return) && cFloor1 == true){
             GameManager.lastPositionSceneFrontofP = transform.position;
-            GameManager.instance.ChangeScene("Floor 1");
+            FadeToScene("Floor 1");
         }
         if(Input.GetKeyDown(KeyCode.Return) && cFrontOfP == true){
             GameManager.lastPositionSceneFloor1 = transform.position;
-            GameManager.instance.ChangeScene("Front of P");
+            FadeToScene("Front of P");
         }
         if(Input.GetKeyDown(KeyCode.Return) && cP203 == true){
             GameManager.lastPositionSceneFloor2 = transform.position;
-            GameManager.instance.ChangeScene("P203");
+            FadeToScene("P203");
         }
         if(Input.GetKeyDown(KeyCode.Return) && cP202 == true){
             GameManager.lastPositionSceneFloor2 = transform.position;
-            GameManager.instance.ChangeScene("P202");
+            FadeToScene("P202");
         }
         if(Input.GetKeyDown(KeyCode.Return) && cP301 == true){
             GameManager.lastPositionSceneFloor3 = transform.position;
-            GameManager.instance.ChangeScene("P301");
+            FadeToScene("P301");
         }
         if(Input.GetKeyDown(KeyCode.Return) && cP404 == true){
             GameManager.lastPositionSceneFloor4 = transform.position;
-            GameManager.instance.ChangeScene("P404");
+            FadeToScene("P404");
         }
         if(Input.GetKeyDown(KeyCode.Return) && cFloor2 == true){
             GameManager.lastPositionSceneP203 = transform.position;
-            GameManager.instance.ChangeScene("Floor 2");
+            FadeToScene("Floor 2");
         }
         if(Input.GetKeyDown(KeyCode.Return) && cFloor3 == true){
-            GameManager.instance.ChangeScene("Floor 3");
+            FadeToScene("Floor 3");
         }
-        if(Input.GetKeyDown(KeyCode.Return) && cFloor4 == true){
-            GameManager.instance.ChangeScene("Floor 4");
+        if(Input.GetKeyDown(KeyCode.Return) && cFloor4 == true && GameManager.instance.paper == 4){
+            FadeToScene("Floor 1");
         }
         if(Input.GetKeyDown(KeyCode.Return) && cStair == true){
             stairUI.SetActive(true);
@@ -101,34 +108,44 @@ public class PlayerSceneManager : MonoBehaviour
             lockDoor.SetActive(true);
         }
         if (other.gameObject.CompareTag("InSideP")){
+            enter.SetActive(true);
             cFloor1 = true;
         }
         if (other.gameObject.CompareTag("OutSideP")){
+            enter.SetActive(true);
             cFrontOfP = true;            
         }
         if (other.gameObject.CompareTag("P203")) {
+            enter.SetActive(true);
             cP203 = true;            
         }
         if (other.gameObject.CompareTag("P202")) {
+            enter.SetActive(true);
             cP202 = true;            
         }
         if (other.gameObject.CompareTag("P301")) {
+            enter.SetActive(true);
             cP301 = true;
         }
         if (other.gameObject.CompareTag("P404")) {
+            enter.SetActive(true);
             cP404 = true;
         }
         if (other.gameObject.CompareTag("Lobby")) {
+            enter.SetActive(true);
             cFloor2 = true;
         }
         if (other.gameObject.CompareTag("Lobby3")) {
+            enter.SetActive(true);
             cFloor3 = true;
         }
         if (other.gameObject.CompareTag("Lobby4")) {
+            enter.SetActive(true);
             cFloor4 = true;
         }
         if (other.gameObject.CompareTag("Stair")) 
         {
+            enter.SetActive(true);
             cStair = true;
         }
     }
@@ -137,34 +154,44 @@ public class PlayerSceneManager : MonoBehaviour
         // Chuyển Scene và Save vị trí các Scene trước đó trước khi chuyển Scene
 
         if (other.gameObject.CompareTag("InSideP")){
+            enter.SetActive(false);
             cFloor1 = false;
         }
         if (other.gameObject.CompareTag("OutSideP")){
+            enter.SetActive(false);
             cFrontOfP = false;            
         }
         if (other.gameObject.CompareTag("P203")) {
+            enter.SetActive(false);
             cP203 = false;            
         }
         if (other.gameObject.CompareTag("P202")) {
+            enter.SetActive(false);
             cP202 = false;            
         }
         if (other.gameObject.CompareTag("P301")) {
+            enter.SetActive(false);
             cP301 = false;
         }
         if (other.gameObject.CompareTag("P404")) {
+            enter.SetActive(false);
             cP404 = false;
         }
         if (other.gameObject.CompareTag("Lobby")) {
+            enter.SetActive(false);
             cFloor2 = false;
         }
         if (other.gameObject.CompareTag("Lobby3")) {
+            enter.SetActive(false);
             cFloor3 = false;
         }
         if (other.gameObject.CompareTag("Lobby4")) {
+            enter.SetActive(false);
             cFloor4 = false;
         }
         if (other.gameObject.CompareTag("Stair")) 
         {
+            enter.SetActive(false);
             cStair = false;
         }
         if(other.gameObject.CompareTag("deochovao")){
@@ -172,33 +199,61 @@ public class PlayerSceneManager : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        
-    }
-
     public void OnButtonClick(int index) {
         // Save và chuyển Scene theo các tầng
         if (index == 1) {
             GameManager.lastPositionSceneFloor1 = transform.position;
-            GameManager.instance.ChangeScene("Floor 1");
+            FadeToScene("Floor 1");
         }
         if (index == 2) {
             GameManager.lastPositionSceneFloor2 = transform.position;
-            GameManager.instance.ChangeScene("Floor 2");
+            FadeToScene("Floor 2");
         }
         if (index == 3) {
             GameManager.lastPositionSceneFloor3 = transform.position;
-            GameManager.instance.ChangeScene("Floor 3");
+            FadeToScene("Floor 3");
         }
         if (index == 4) {
             GameManager.lastPositionSceneFloor4 = transform.position;
-            GameManager.instance.ChangeScene("Floor 4");
+            FadeToScene("Floor 4");
         }
     }
 
-    // Chắc là rác do TriggerStay như ...
-    private bool IsMoving() {
-        return Input.GetAxis("Horizontal") == 0 || Input.GetAxis("Vertical") == 0;
-}
+
+    // Hàm để chuyển scene với hiệu ứng fade out
+    public void FadeToScene(string sceneName)
+    {
+        StartCoroutine(FadeOut(sceneName));
+    }
+
+    // Coroutine để thực hiện fade in
+    private IEnumerator FadeIn()
+    {
+        float t = fadeDuration;
+        while (t > 0f)
+        {
+            t -= Time.deltaTime;
+            Color color = fadeImage.color;
+            color.a = t / fadeDuration;
+            fadeImage.color = color;
+            yield return null;
+        }
+    }
+
+    // Coroutine để thực hiện fade out và chuyển scene
+    private IEnumerator FadeOut(string sceneName)
+    {
+        float t = 0f;
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime;
+            Color color = fadeImage.color;
+            color.a = t / fadeDuration;
+            fadeImage.color = color;
+            yield return null;
+        }
+
+        // Chuyển scene sau khi fade out hoàn tất
+        GameManager.instance.ChangeScene(sceneName);
+    }
 }

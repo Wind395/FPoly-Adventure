@@ -38,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/In Game/P404.unity
     guid: 24c3c31318f23484398eb5d345daf19f
+  - enabled: 1
+    path: Assets/Scenes/In Game/Ending.unity
+    guid: 2beeb24460508694ba93b56bf91537e8
   m_configObjects: {}

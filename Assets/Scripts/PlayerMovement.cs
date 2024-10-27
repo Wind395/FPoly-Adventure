@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private bool canRun;
+
+    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject paperDone;
     
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
@@ -18,9 +20,15 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
 
-        GameManager.instance.IsCountingSwitcher();
+        GameManager.instance.canRun = true;
 
-        canRun = true;
+        if (GameManager.instance.paper == 4 && SceneManager.GetActiveScene().name == "Floor 1") {
+            paperDone.SetActive(true);
+        }
+        if (SceneManager.GetActiveScene().name == "Ending") {
+            GameManager.instance.canRun = true;
+            Time.timeScale = 1;
+        }
     }
 
     // Update is called once per frame
@@ -29,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
     private void FixedUpdate() {
-        if (canRun) {
+        if (GameManager.instance.canRun) {
             Moving();
         }
     }
@@ -47,9 +55,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     IEnumerator Delay() {
-        animator.SetBool("isDead", true);
-        canRun = false;
+        animator.SetTrigger("isDead");
+        GameManager.instance.canRun = false;
         GameManager.instance.paper = 0;
+        GameManager.instance.beeBadge = 0;
+        GameManager.instance.hasRead = false;
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("P203");
     }
@@ -58,5 +68,18 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Ghost") && ConversationManager.nextConversation == 3) {
             StartCoroutine(Delay());
         }
+        if (other.gameObject.CompareTag("Ending")) {
+            StartCoroutine(EndingTime());
+        }
+    }
+
+    IEnumerator EndingTime() {
+        GameManager.instance.canRun = false;
+        animator.SetFloat("isRunning", 0);
+        enemy.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        paperDone.GetComponent<SpriteRenderer>().enabled = true;
+        Time.timeScale = 0;
+        GameManager.instance.ChangeScene("Ending");
     }
 }

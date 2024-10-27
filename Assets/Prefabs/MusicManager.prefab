@@ -50,6 +50,7 @@ MonoBehaviour:
   menuMusic: {fileID: 5504104753209204158}
   gameMusic: {fileID: 1821662353476603817}
   enemyMusic: {fileID: 6006534088347931390}
+  isInMenu: 1
 --- !u!82 &1821662353476603817
 AudioSource:
   m_ObjectHideFlags: 0
@@ -156,7 +157,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7304a0755614df941bceb01dbe0a6063, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f772c32f092e2f9499259919c1049a88, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

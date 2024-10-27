@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NPCs : MonoBehaviour
 {
@@ -10,14 +11,20 @@ public class NPCs : MonoBehaviour
 
     [SerializeField] private GameObject beeFPoly;
 
+    [SerializeField] private GameObject eButton;
+
     public Animator animator;
 
     [SerializeField] private AudioSource girl;
+    private SpriteChange  spriteChange;
+
+    [SerializeField] private SpriteRenderer sprite;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -34,12 +41,16 @@ public class NPCs : MonoBehaviour
         if (ConversationManager.nextConversation == 0 && ConversationManager.currentConversationIndex >= 9) {
             animator.SetBool("IsAction", false);
         }
-
         if (ConversationManager.nextConversation == 2 && ConversationManager.currentConversationIndex >= 12) {
             beeFPoly.SetActive(false);
         }
         if (ConversationManager.nextConversation == 3) {
             beeFPoly.SetActive(false);
+        }
+
+        if (ConversationManager.nextConversation == 3 && ConversationManager.currentConversationIndex == 6) {
+            Debug.Log("Change");
+            sprite.flipX = false;
         }
     }
 
@@ -60,8 +71,8 @@ public class NPCs : MonoBehaviour
                     break;
                 case 1:
                     if (gameObject.CompareTag("Door") && !GameManager.instance.isDoor) {
-                        ConversationManager.Instance.LoadConversation("conversation2");
                         chatboxUI.SetActive(true);
+                        ConversationManager.Instance.LoadConversation("conversation2");
                         if (chatboxUI.activeSelf == false) {
                             GameManager.instance.isDoor = true;
                         }
@@ -76,9 +87,30 @@ public class NPCs : MonoBehaviour
                         }
                     }
                     break;
+                case 3:
+                    if (gameObject.CompareTag("Boy") && SceneManager.GetActiveScene().name == "Ending") {
+                        GameManager.instance.canRun = false;
+                        chatboxUI.SetActive(true);
+                        ConversationManager.Instance.LoadConversation("conversation4");
+                        if (chatboxUI.activeSelf == false) {
+                            GameManager.instance.endUI.SetActive(true);
+                        }
+                    }
+                    break;
             }
             // Chuyển câu nói chuyện tiếp theo
             ConversationManager.Instance.GetNextConversation(); 
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Girl") || other.gameObject.CompareTag("Door") ||  other.gameObject.CompareTag("Golden Bee") || other.gameObject.CompareTag("Boy")) {
+            eButton.SetActive(true);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Girl") || other.gameObject.CompareTag("Door") ||  other.gameObject.CompareTag("Golden Bee") || other.gameObject.CompareTag("Boy")) {
+            eButton.SetActive(false);
         }
     }
 }

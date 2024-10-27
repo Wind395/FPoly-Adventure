@@ -22,8 +22,9 @@ public class SpriteChange : MonoBehaviour
         
     }
 
+
     private void OnTriggerStay2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Player")) {
+        if (other.gameObject.CompareTag("Player") && ConversationManager.nextConversation == 3 && ConversationManager.currentConversationIndex == 6) {
             spriteRenderer.sprite = newSprite;
         }
     }

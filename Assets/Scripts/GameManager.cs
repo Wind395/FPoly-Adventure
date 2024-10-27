@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
     public int beeBadge = 0;
     public bool hasDeadlineCompleted = false;
 
+    // Paper has read
+    public bool hasRead = false;
+
     //Timer & Score
     private float timeCounter;
     private bool isCounting = false;
@@ -42,9 +45,8 @@ public class GameManager : MonoBehaviour
     public bool isDoor = false;
     public bool isBee = false;
 
-    //Progression
-    public int _progression;
 
+    [SerializeField] private GameObject[] paperInfor;
     [SerializeField] private GameObject[] papers;
     [SerializeField] private GameObject[] bees;
 
@@ -54,6 +56,11 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField] private GameObject[] errorDeadline;
+
+
+    public bool canRun;
+
+    public GameObject endUI;
 
     private void Awake() {
         // Singleton
@@ -74,15 +81,7 @@ public class GameManager : MonoBehaviour
                 girl.SetActive(false);
                 beeFPoly.SetActive(true);
                 tablechair.SetActive(true);
-            }
-            if (SceneManager.GetActiveScene().name == "P202") {
-                Instantiate(papers[1], new Vector2(13.7f, 0f), Quaternion.identity);
-            }
-            if (SceneManager.GetActiveScene().name == "P301") {
-                Instantiate(papers[2], new Vector2(1.6f, 0.5f), Quaternion.identity);
-            }
-            if (SceneManager.GetActiveScene().name == "P404") {
-                Instantiate(papers[3], new Vector2(8.45f, 0.55f), Quaternion.identity);
+                paperInfor[0].SetActive(true);
             }
         }
 
@@ -93,30 +92,37 @@ public class GameManager : MonoBehaviour
             if (SceneManager.GetActiveScene().name == "Floor 3" && errorDeadline != null) {
                 errorDeadline[1].SetActive(true);
             }
-            if (SceneManager.GetActiveScene().name == "Floor 4" && errorDeadline != null) {
-                errorDeadline[2].SetActive(true);
+            if (SceneManager.GetActiveScene().name == "Floor 4") {
+                paperInfor[2].SetActive(true);
+            }
+            if (SceneManager.GetActiveScene().name == "P202") {
+                Instantiate(papers[1], new Vector2(13.7f, 0f), Quaternion.identity);
+            }
+            if (SceneManager.GetActiveScene().name == "P301") {
+                Instantiate(papers[2], new Vector2(1.6f, 0.5f), Quaternion.identity);
+                paperInfor[1].SetActive(true);
+            }
+            if (SceneManager.GetActiveScene().name == "P404") {
+                Instantiate(papers[3], new Vector2(8.45f, 0.55f), Quaternion.identity);
+                paperInfor[3].SetActive(true);
             }
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        _progression = 0;
         highscoreFilePath = Path.Combine(Application.persistentDataPath, "highscores.txt");
+        GameManager.instance.IsCountingSwitcher();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H)) {
-            IsCountingSwitcher();
-        }
-
         if(isCounting == true){ //đếm thời gian theo giây
             timeCounter += Time.deltaTime;
             lastTime = timeCounter;
-            Debug.Log(timeCounter);
         }
+        Debug.Log(ConversationManager.nextConversation);
     }
 
     // Chức năng chuyển Scene để tái sử dụng nhiều lần
@@ -132,12 +138,6 @@ public class GameManager : MonoBehaviour
         beeBadge++;
     }
 
-    public bool Ending(){
-        if(paper == 4){
-            return true;
-        }
-        return false;
-    }
     public void IsCountingSwitcher(){   //bật/tắt bộ đếm giờ
         if(isCounting == false){
             isCounting = true;

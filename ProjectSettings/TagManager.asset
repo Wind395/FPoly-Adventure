@@ -20,6 +20,10 @@ TagManager:
   - Lobby3
   - Lobby4
   - deochovao
+  - Information
+  - Information Active
+  - Ending
+  - Boy
   layers:
   - Default
   - TransparentFX
