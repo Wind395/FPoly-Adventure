@@ -45,6 +45,7 @@ public class FileAuthManager : MonoBehaviour
     private IEnumerator WaitAndLoadScene()
     {
         yield return new WaitForSeconds(2); // Chờ 2 giây
+        MusicManager.instance.PlayMenuMusic();
         SceneManager.LoadScene("Menu"); // Chuyển sang scene mới (thay "TênSceneMới" bằng tên scene của bạn)
     }
     private bool IsRegisted(string userName){   //kiểm tra tài khoản tồn tại chưa

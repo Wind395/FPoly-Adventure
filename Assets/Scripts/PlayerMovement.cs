@@ -1,7 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private GameObject enemy;
     [SerializeField] private GameObject paperDone;
+    [SerializeField] private Image _whiteFade;
     
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
@@ -81,6 +83,21 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(5.5f);
         paperDone.GetComponent<SpriteRenderer>().enabled = true;
         Time.timeScale = 0;
-        GameManager.instance.ChangeScene("Ending");
+        StartCoroutine(FadeOut("Ending"));
+    }
+    private IEnumerator FadeOut(string sceneName)
+    {
+        float t = 0f;
+        while (t < 1)
+        {
+            t += Time.deltaTime;
+            Color color = _whiteFade.color;
+            color.a = t / 1;
+            _whiteFade.color = color;
+            yield return null;
+        }
+
+        // Chuyển scene sau khi fade out hoàn tất
+        GameManager.instance.ChangeScene(sceneName);
     }
 }

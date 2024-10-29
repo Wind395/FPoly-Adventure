@@ -24,6 +24,10 @@ public class UIManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "P203" && ConversationManager.nextConversation == 0) {
             StartCoroutine(OpeningShowUI());
         }
+        else
+        {
+            UI1.SetActive(false);
+        }
         if (SceneManager.GetActiveScene().name == "Ending" && ConversationManager.nextConversation >= 3) {
             StartCoroutine(EndingShowUI());
         }

@@ -16,6 +16,7 @@ public class SceneController : MonoBehaviour
     {
         // Khi chuyển sang màn chơi, phát nhạc màn chơi
         MusicManager.instance.PlayGameMusic();
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("P203");  // Tên scene màn chơi
         SceneManager.LoadScene("Floor 1");
         SceneManager.LoadScene("Floor 2");
