@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSprite: {fileID: -493499711, guid: 47fd1b45446f702458b0b112913c42f7, type: 3}
-  newSprite: {fileID: -824794055, guid: 47fd1b45446f702458b0b112913c42f7, type: 3}
+  newSprite: {fileID: -1574576208, guid: 8b2180473efeb154abdd0f4abd678ac5, type: 3}
 --- !u!222 &1455822541261820501
 CanvasRenderer:
   m_ObjectHideFlags: 0

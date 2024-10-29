@@ -591,6 +591,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 683514703739298561, guid: bdb0ef7490d10bf46b1d684c639fdb3e, type: 3}
+      propertyPath: E
+      value: 
+      objectReference: {fileID: 2049761323}
+    - target: {fileID: 683514703739298561, guid: bdb0ef7490d10bf46b1d684c639fdb3e, type: 3}
       propertyPath: fadeImage
       value: 
       objectReference: {fileID: 2072276168}
@@ -14071,6 +14075,8 @@ MonoBehaviour:
   eButton: {fileID: 2049761323}
   animator: {fileID: 0}
   girl: {fileID: 0}
+  imgUI: {fileID: 0}
+  audioClip: {fileID: 0}
 --- !u!114 &1679567492
 MonoBehaviour:
   m_ObjectHideFlags: 0

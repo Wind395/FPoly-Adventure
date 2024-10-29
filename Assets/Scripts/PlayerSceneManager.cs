@@ -17,6 +17,9 @@ public class PlayerSceneManager : MonoBehaviour
     public float fadeDuration = 1f; // Thời gian hiệu ứng fade
 
     public GameObject enter;
+    public GameObject F;
+    public GameObject exit;
+    public GameObject E;
 
     // Start is called before the first frame update
     void Start()
@@ -100,6 +103,7 @@ public class PlayerSceneManager : MonoBehaviour
     private bool cP301 = false;
     private bool cP404 = false;
     private bool cStair = false;
+    private bool girl = false;
     private void OnTriggerEnter2D(Collider2D other) {
 
         // Chuyển Scene và Save vị trí các Scene trước đó trước khi chuyển Scene
@@ -148,10 +152,69 @@ public class PlayerSceneManager : MonoBehaviour
             enter.SetActive(true);
             cStair = true;
         }
+        if(other.gameObject.CompareTag("Golden Bee"))
+        {
+            F.SetActive(true);
+        } 
+        if(other.gameObject.CompareTag("Paper"))
+        {
+            F.SetActive(true);
+        }
+        if (other.gameObject.CompareTag("Girl"))
+        {
+            E.SetActive(true);
+            girl = true;
+        }
+        if (other.gameObject.CompareTag("Information Active"))
+        {
+            F.SetActive(true);
+            
+        }
+        if (other.gameObject.CompareTag("Boy"))
+        {
+            E.SetActive(true);
+
+        }
+        if (other.gameObject.CompareTag("Door"))
+        {
+            E.SetActive(true);
+
+        }
+
+
     }
     private void OnTriggerExit2D(Collider2D other) {
 
         // Chuyển Scene và Save vị trí các Scene trước đó trước khi chuyển Scene
+        if(other.gameObject.CompareTag("Golden Bee"))
+        {
+            F.SetActive(false);
+        } 
+        if(other.gameObject.CompareTag("Paper"))
+        {
+            F.SetActive(false);
+        }
+        if (other.gameObject.CompareTag("Girl"))
+        {
+            E.SetActive(false);
+            girl=false;
+        }
+        if (other.gameObject.CompareTag("Information Active"))
+        {
+            F.SetActive(false);
+           
+        }
+        if (other.gameObject.CompareTag("Boy"))
+        {
+            E.SetActive(false);
+
+        }
+        if (other.gameObject.CompareTag("Door"))
+        {
+            E.SetActive(false);
+
+        }
+
 
         if (other.gameObject.CompareTag("InSideP")){
             enter.SetActive(false);

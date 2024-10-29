@@ -18,7 +18,11 @@ public class NPCs : MonoBehaviour
     [SerializeField] private AudioSource girl;
 
 
-    // Start is called before the first frame update
+
+
+    [SerializeField] private GameObject imgUI;
+    [SerializeField] private AudioSource audioClip;
+    private bool actionTriggered = false;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -34,6 +38,12 @@ public class NPCs : MonoBehaviour
         // Sử dụng các biến dưới để so sánh và chạy Animation,...
         if (ConversationManager.nextConversation == 0 && ConversationManager.currentConversationIndex >= 7) {
             animator.SetBool("IsAction", true);
+        }
+        if (ConversationManager.nextConversation == 0 && ConversationManager.currentConversationIndex == 9 && !actionTriggered)
+        {
+            ShowImageAndPlayAudio();
+            Debug.Log("Current Index: " + ConversationManager.currentConversationIndex);
+            actionTriggered = true;
         }
         if (ConversationManager.nextConversation == 0 && ConversationManager.currentConversationIndex >= 10) {
             animator.SetBool("IsAction", false);
@@ -105,5 +115,18 @@ public class NPCs : MonoBehaviour
         if (other.gameObject.CompareTag("Girl") || other.gameObject.CompareTag("Door") ||  other.gameObject.CompareTag("Golden Bee") || other.gameObject.CompareTag("Boy")) {
             eButton.SetActive(false);
         }
+    }
+
+    private void ShowImageAndPlayAudio()
+    {
+        imgUI.SetActive(true); //Hiển thị hình ảnh
+        audioClip.Play();//Nhạc mở
+        StartCoroutine(HideImageAndStopAudio());
+    }
+    private IEnumerator HideImageAndStopAudio()
+    {
+        yield return new WaitForSeconds(3);
+        imgUI.SetActive(false);
+        audioClip.Stop();
     }
 }

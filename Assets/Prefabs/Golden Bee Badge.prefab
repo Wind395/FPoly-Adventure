@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSprite: {fileID: -1532304658, guid: 5b1839201f15c9a44b3bbee185a9541c, type: 3}
-  newSprite: {fileID: 770282396, guid: 5b1839201f15c9a44b3bbee185a9541c, type: 3}
+  newSprite: {fileID: 331490420, guid: e968f060660363840b30144332e57d57, type: 3}
 --- !u!114 &8912391635492017728
 MonoBehaviour:
   m_ObjectHideFlags: 0
