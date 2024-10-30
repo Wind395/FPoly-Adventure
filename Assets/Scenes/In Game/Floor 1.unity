@@ -16035,6 +16035,10 @@ PrefabInstance:
       propertyPath: paperDone
       value: 
       objectReference: {fileID: 422103284}
+    - target: {fileID: 5311088392994704918, guid: bdb0ef7490d10bf46b1d684c639fdb3e, type: 3}
+      propertyPath: _whiteFade
+      value: 
+      objectReference: {fileID: 2142372586}
     - target: {fileID: 7245768024067510124, guid: bdb0ef7490d10bf46b1d684c639fdb3e, type: 3}
       propertyPath: m_Name
       value: Player
