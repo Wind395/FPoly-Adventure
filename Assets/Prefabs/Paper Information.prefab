@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 841776341876846180}
   - component: {fileID: 9044541890240174633}
   - component: {fileID: 2634245305210025054}
+  - component: {fileID: 4570418203802818543}
   m_Layer: 0
   m_Name: Paper Information
   m_TagString: Information
@@ -130,3 +131,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.53125, y: 0.75}
   m_EdgeRadius: 0
+--- !u!114 &4570418203802818543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086171990071429838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38d7d488bd2f20445b0ac7bd184928cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: p5
+  paperInforFloor4: {fileID: 0}
+  otherPaperInfor: {fileID: 0}
+  fButton: {fileID: 0}

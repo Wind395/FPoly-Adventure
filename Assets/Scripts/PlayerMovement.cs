@@ -63,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         GameManager.instance.paper = 0;
         GameManager.instance.beeBadge = 0;
         GameManager.instance.hasRead = false;
+        PlayerPrefs.DeleteAll();
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("P203");
     }
@@ -72,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Delay());
         }
         if (other.gameObject.CompareTag("Ending")) {
+            _whiteFade.gameObject.SetActive(true);
             StartCoroutine(EndingTime());
         }
     }
@@ -82,7 +84,6 @@ public class PlayerMovement : MonoBehaviour
         enemy.SetActive(true);
         yield return new WaitForSeconds(5.5f);
         paperDone.GetComponent<SpriteRenderer>().enabled = true;
-        Time.timeScale = 0;
         StartCoroutine(FadeOut("Ending"));
     }
     private IEnumerator FadeOut(string sceneName)
@@ -94,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
             Color color = _whiteFade.color;
             color.a = t / 1;
             _whiteFade.color = color;
+            GameManager.instance.IsCountingSwitcher();
             yield return null;
         }
 

@@ -8391,13 +8391,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paper_2
       objectReference: {fileID: 0}
-    - target: {fileID: 2365194926194644411, guid: 460b458f95845d44a828ffa82ee19ac2, type: 3}
-      propertyPath: _itemID
-      value: p2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2365194926194644411, guid: 460b458f95845d44a828ffa82ee19ac2, type: 3}
-      propertyPath: fButton
-      value: 
+    - target: {fileID: 2243493730586458974, guid: 460b458f95845d44a828ffa82ee19ac2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4110286109394137652, guid: 460b458f95845d44a828ffa82ee19ac2, type: 3}
       propertyPath: m_Pivot.x

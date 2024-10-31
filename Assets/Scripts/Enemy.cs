@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+        canMove = true;
     }
 
     void Update()
@@ -87,11 +87,14 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
+    private bool canMove;
     void FixedUpdate()
     {
-        // Di chuyển quái (đuổi theo hoặc lang thang)
-        rb.MovePosition((Vector2)transform.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if (canMove)
+        {
+            // Di chuyển quái (đuổi theo hoặc lang thang)
+            rb.MovePosition((Vector2)transform.position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
     }
 
     // Hàm để quái lang thang qua lại khi chưa đuổi theo nhân vật
@@ -132,5 +135,12 @@ public class Enemy : MonoBehaviour
         // Vẽ đường di chuyển giới hạn
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(new Vector3(leftLimit, transform.position.y, 0), new Vector3(rightLimit, transform.position.y, 0)); // Giới hạn trái và phải
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ending"))
+        {
+            canMove = false;
+        }
     }
 }

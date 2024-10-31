@@ -1010,7 +1010,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Information Active
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4570418203802818543, guid: 8a8f83b55f2197246975354781e4115d, type: 3}
+      propertyPath: _itemID
+      value: p6
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4570418203802818543, guid: 8a8f83b55f2197246975354781e4115d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1355,7 +1360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d7d488bd2f20445b0ac7bd184928cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 
+  _itemID: p6
   paperInforFloor4: {fileID: 1238884160}
   otherPaperInfor: {fileID: 0}
   fButton: {fileID: 0}

@@ -1570,6 +1570,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 372a0e31e4f00fa4b9b338447d6ef28b, type: 3}
+--- !u!114 &661094107 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5796015028174233609, guid: 372a0e31e4f00fa4b9b338447d6ef28b, type: 3}
+  m_PrefabInstance: {fileID: 661094106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65f886016107d7439937a1dffa232eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &718671299 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8391215507317256037, guid: 515216f2a274a88499d4581aada3bbaa, type: 3}
@@ -2752,6 +2763,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1388653771}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
         m_MethodName: LoadGameScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 661094107}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: IsCountingSwitcher
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
