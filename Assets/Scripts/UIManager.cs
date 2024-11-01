@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject UI1;
+    [SerializeField] private GameObject UI1;
+    public GameObject ED1;
     public CanvasGroup uiGroup; // Gán CanvasGroup từ Panel
     public TMP_Text displayText; // Gán Text từ UI
     public float transitionDuration = 2f; // Thời gian chuyển đổi
@@ -18,6 +19,7 @@ public class UIManager : MonoBehaviour
     public SpriteRenderer boySpriteRenderer;
     public Sprite boy;
 
+    public GameObject pauseUI;
 
     private void Start()
     {
@@ -28,13 +30,19 @@ public class UIManager : MonoBehaviour
         {
             UI1.SetActive(false);
         }
-        if (SceneManager.GetActiveScene().name == "Ending" && ConversationManager.nextConversation >= 3) {
+        if (SceneManager.GetActiveScene().name == "Ending") {
             StartCoroutine(EndingShowUI());
         }
     }
 
     private void Update() {
         StartCoroutine(Ending2UI());
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseUI.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     private IEnumerator OpeningShowUI()
@@ -72,6 +80,7 @@ public class UIManager : MonoBehaviour
 
         // Hiện text đầu tiên
         displayText.text = textContent[0];
+        Debug.Log("Showed");
         yield return new WaitForSeconds(displayDuration);
 
         // Hiện text thứ hai
@@ -86,7 +95,7 @@ public class UIManager : MonoBehaviour
         }
 
         uiGroup.alpha = 0f; // Đặt alpha về 0 sau khi chuyển đổi
-        UI1.SetActive(false);
+        ED1.SetActive(false);
     }
 
     private IEnumerator Ending2UI() {
@@ -96,5 +105,16 @@ public class UIManager : MonoBehaviour
             yield return new WaitForSeconds(4);
             UI2.SetActive(true);
         }
+    }
+
+    public void ReturntoMenu()
+    {
+        GameManager.instance.ChangeScene("Menu");
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        pauseUI.SetActive(false);
     }
 }

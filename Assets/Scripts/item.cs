@@ -40,7 +40,7 @@ public class item : MonoBehaviour
         if (pickUp == true && gameObject.tag == "Information" &&  Input.GetKeyDown(KeyCode.F)) {
             otherPaperInfor.SetActive(true);
         }
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Q)) {
             if (gameObject.tag == "Information Active") {
                 paperInforFloor4.SetActive(false);
                 GameManager.instance.canRun = true;

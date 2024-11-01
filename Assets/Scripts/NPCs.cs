@@ -19,13 +19,16 @@ public class NPCs : MonoBehaviour
 
 
 
-
     [SerializeField] private GameObject imgUI;
     [SerializeField] private AudioSource audioClip;
     private bool actionTriggered = false;
+
+    public BoxCollider2D BoxCollider2D;
+
     void Start()
     {
         animator = GetComponent<Animator>();
+        BoxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -35,26 +38,37 @@ public class NPCs : MonoBehaviour
             Conversation();
         }
 
+        if (GameManager.instance.isGirl && !GameManager.instance.isDoor)
+        {
+            ConversationManager.nextConversation = 1;
+        }
+        if (GameManager.instance.isGirl && GameManager.instance.isDoor && !GameManager.instance.isBee)
+        {
+            ConversationManager.nextConversation = 2;
+        }
+        if (GameManager.instance.isGirl && GameManager.instance.isDoor && GameManager.instance.isBee)
+        {
+            ConversationManager.nextConversation = 3;
+        }
+
+        Debug.Log(ConversationManager.nextConversation);
+
         // Sử dụng các biến dưới để so sánh và chạy Animation,...
-        if (ConversationManager.nextConversation == 0 && ConversationManager.currentConversationIndex >= 7) {
+        if (ConversationManager.nextConversation == 1 && ConversationManager.currentConversationIndex >= 7) {
             animator.SetBool("IsAction", true);
         }
-        if (ConversationManager.nextConversation == 0 && ConversationManager.currentConversationIndex == 9 && !actionTriggered)
+        if (ConversationManager.nextConversation == 1 && ConversationManager.currentConversationIndex == 9 && !actionTriggered)
         {
             ShowImageAndPlayAudio();
             Debug.Log("Current Index: " + ConversationManager.currentConversationIndex);
             actionTriggered = true;
         }
-        if (ConversationManager.nextConversation == 0 && ConversationManager.currentConversationIndex >= 10) {
+        if (ConversationManager.nextConversation == 1 && ConversationManager.currentConversationIndex >= 10) {
             animator.SetBool("IsAction", false);
         }
-        if (ConversationManager.nextConversation == 2 && ConversationManager.currentConversationIndex >= 12) {
+        if (ConversationManager.nextConversation == 3 && ConversationManager.currentConversationIndex >= 12) {
             beeFPoly.SetActive(false);
         }
-        if (ConversationManager.nextConversation == 3) {
-            beeFPoly.SetActive(false);
-        }
-
     }
 
     void Conversation() {
@@ -63,31 +77,26 @@ public class NPCs : MonoBehaviour
             switch (ConversationManager.nextConversation) {
                 // So sánh các điều kiện để nói chuyện với NPC tiếp theo, tránh bị trùng lặp
                 case 0:
-                    if (gameObject.CompareTag("Girl") &&  !GameManager.instance.isGirl) {
+                    if (gameObject.CompareTag("Girl") && !GameManager.instance.isGirl) {
                         chatboxUI.SetActive(true);
+                        GameManager.instance.isGirl = true;
                         Debug.Log(ConversationManager.currentConversationIndex);
                         ConversationManager.Instance.LoadConversation("conversation1");
-                        if (chatboxUI.activeSelf == false) {
-                            GameManager.instance.isGirl = true;
-                        }
                     }
+                    
                     break;
                 case 1:
                     if (gameObject.CompareTag("Door") && !GameManager.instance.isDoor) {
                         chatboxUI.SetActive(true);
+                        GameManager.instance.isDoor = true;
                         ConversationManager.Instance.LoadConversation("conversation2");
-                        if (chatboxUI.activeSelf == false) {
-                            GameManager.instance.isDoor = true;
-                        }
                     }
                     break;
                 case 2:
                     if (gameObject.CompareTag("Golden Bee") && !GameManager.instance.isBee) {
                         chatboxUI.SetActive(true);
+                        GameManager.instance.isBee = true;
                         ConversationManager.Instance.LoadConversation("conversation3");
-                        if (chatboxUI.activeSelf == false) {
-                            GameManager.instance.isBee = true;
-                        }
                     }
                     break;
                 case 3:
@@ -125,7 +134,7 @@ public class NPCs : MonoBehaviour
     }
     private IEnumerator HideImageAndStopAudio()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         imgUI.SetActive(false);
         audioClip.Stop();
     }

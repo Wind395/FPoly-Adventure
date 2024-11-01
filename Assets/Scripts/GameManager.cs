@@ -123,7 +123,6 @@ public class GameManager : MonoBehaviour
             timeCounter += Time.deltaTime;
             lastTime = timeCounter;
         }
-        Debug.Log(ConversationManager.nextConversation);
     }
 
     // Chức năng chuyển Scene để tái sử dụng nhiều lần

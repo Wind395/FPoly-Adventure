@@ -82,14 +82,11 @@ public class PlayerMovement : MonoBehaviour
         GameManager.instance.canRun = false;
         animator.SetFloat("isRunning", 0);
         enemy.SetActive(true);
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(5.7f);
         paperDone.GetComponent<SpriteRenderer>().enabled = true;
-        StartCoroutine(FadeOut("Ending"));
-    }
-    private IEnumerator FadeOut(string sceneName)
-    {
+        yield return new WaitForSeconds(0.7f);
         float t = 0f;
-        while (t < 1)
+        while (t < 2)
         {
             t += Time.deltaTime;
             Color color = _whiteFade.color;
@@ -98,8 +95,6 @@ public class PlayerMovement : MonoBehaviour
             GameManager.instance.IsCountingSwitcher();
             yield return null;
         }
-
-        // Chuyển scene sau khi fade out hoàn tất
-        GameManager.instance.ChangeScene(sceneName);
+        SceneManager.LoadScene("Ending");
     }
 }
