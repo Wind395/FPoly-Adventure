@@ -7062,6 +7062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 781538553}
   - component: {fileID: 781538552}
+  - component: {fileID: 781538554}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -7100,6 +7101,8 @@ MonoBehaviour:
   UI2: {fileID: 0}
   boySpriteRenderer: {fileID: 0}
   boy: {fileID: 0}
+  jumpscare: {fileID: 0}
+  jumpScareUI: {fileID: 0}
   pauseUI: {fileID: 1503010448}
 --- !u!4 &781538553
 Transform:
@@ -7116,6 +7119,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &781538554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781538551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e7d6cfd9543ce488aeb4ad7000e1d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  chatboxUI: {fileID: 0}
+  beeFPoly: {fileID: 0}
+  eButton: {fileID: 0}
+  animator: {fileID: 0}
+  girl: {fileID: 0}
+  imgUI: {fileID: 0}
+  audioClip: {fileID: 0}
+  BoxCollider2D: {fileID: 0}
 --- !u!1 &823104304
 GameObject:
   m_ObjectHideFlags: 0

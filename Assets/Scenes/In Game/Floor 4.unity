@@ -14237,6 +14237,8 @@ MonoBehaviour:
   UI2: {fileID: 0}
   boySpriteRenderer: {fileID: 0}
   boy: {fileID: 0}
+  jumpscare: {fileID: 0}
+  jumpScareUI: {fileID: 0}
   pauseUI: {fileID: 855747505}
 --- !u!4 &1099348387
 Transform:
@@ -14801,6 +14803,10 @@ PrefabInstance:
     - target: {fileID: 683514703739298561, guid: bdb0ef7490d10bf46b1d684c639fdb3e, type: 3}
       propertyPath: fadeDuration
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287752337785213360, guid: bdb0ef7490d10bf46b1d684c639fdb3e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7245768024067510124, guid: bdb0ef7490d10bf46b1d684c639fdb3e, type: 3}
       propertyPath: m_Name

@@ -66,7 +66,12 @@ public class NPCs : MonoBehaviour
         if (ConversationManager.nextConversation == 1 && ConversationManager.currentConversationIndex >= 10) {
             animator.SetBool("IsAction", false);
         }
-        if (ConversationManager.nextConversation == 3 && ConversationManager.currentConversationIndex >= 12) {
+        if (ConversationManager.nextConversation == 2 && ConversationManager.currentConversationIndex >= 12) {
+            GameManager.instance.isBee = true;
+            beeFPoly.SetActive(false);
+        }
+        if (ConversationManager.nextConversation >= 3)
+        {
             beeFPoly.SetActive(false);
         }
     }
@@ -95,7 +100,6 @@ public class NPCs : MonoBehaviour
                 case 2:
                     if (gameObject.CompareTag("Golden Bee") && !GameManager.instance.isBee) {
                         chatboxUI.SetActive(true);
-                        GameManager.instance.isBee = true;
                         ConversationManager.Instance.LoadConversation("conversation3");
                     }
                     break;

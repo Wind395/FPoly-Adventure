@@ -45,11 +45,6 @@ public class UIManager : MonoBehaviour
             pauseUI.SetActive(true);
             Time.timeScale = 0;
         }
-
-        if (jumpScareUI.activeSelf)
-        {
-            
-        }
     }
 
     private IEnumerator OpeningShowUI()

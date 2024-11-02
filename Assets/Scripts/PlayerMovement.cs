@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Ghost") && ConversationManager.nextConversation == 3) {
+        if (other.gameObject.CompareTag("Ghost")) {
             StartCoroutine(Delay());
         }
         if (other.gameObject.CompareTag("Ending")) {
