@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     public GameObject UI2;
     public SpriteRenderer boySpriteRenderer;
     public Sprite boy;
+    public AudioSource jumpscare;
+    public GameObject jumpScareUI;
 
     public GameObject pauseUI;
 
@@ -42,6 +44,11 @@ public class UIManager : MonoBehaviour
         {
             pauseUI.SetActive(true);
             Time.timeScale = 0;
+        }
+
+        if (jumpScareUI.activeSelf)
+        {
+            
         }
     }
 
@@ -102,7 +109,11 @@ public class UIManager : MonoBehaviour
         if (ConversationManager.nextConversation == 3 && ConversationManager.currentConversationIndex == 7) {
             boySpriteRenderer.sprite = boy;
             boySpriteRenderer.flipX = false;
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(3);
+
+            jumpScareUI.SetActive(true);
+            yield return new WaitForSeconds(1);
+            jumpScareUI.SetActive(false);
             UI2.SetActive(true);
         }
     }
