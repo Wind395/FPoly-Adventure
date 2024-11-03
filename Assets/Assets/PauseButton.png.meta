@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 62b059c2ab1cbdb42951488d37e7cb87
+guid: 7050b1fc39864a2488e0506fdbdf23d1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,127 +97,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button_0
+      name: PauseButton_0
       rect:
         serializedVersion: 2
         x: 0
         y: 32
-        width: 96
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c139d71b52d8e1640bb8f8f78e1da0dd
-      internalID: -1634471767
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 32
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8c02aa048e3b8944af51b673f954b27
-      internalID: 1914196369
+      spriteID: d7122aeeded5c92419f811b86f13dae0
+      internalID: -1817859129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_2
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a1048ffd9c77ca43bda25060aa5179e
-      internalID: -742258035
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_3
+      name: PauseButton_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9a2501d76fb5b24abc08fb1cb05ff33
-      internalID: 805948595
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a9dd8cdc4b354f40ae84aed6d2df776
-      internalID: 1975090367
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_5
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed345cb00cee0fc498a23e7099915060
-      internalID: -1767807614
+      spriteID: dddaec1bdf775fe4e9340dd48cab9f35
+      internalID: -1492546006
       vertices: []
       indices: 
       edges: []
@@ -233,12 +149,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Button_0: -1634471767
-      Button_1: 1914196369
-      Button_2: -742258035
-      Button_3: 805948595
-      Button_4: 1975090367
-      Button_5: -1767807614
+      PauseButton_0: -1817859129
+      PauseButton_1: -1492546006
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

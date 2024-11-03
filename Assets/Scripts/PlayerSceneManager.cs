@@ -155,8 +155,12 @@ public class PlayerSceneManager : MonoBehaviour
         if(other.gameObject.CompareTag("Golden Bee"))
         {
             F.SetActive(true);
-        } 
-        if(other.gameObject.CompareTag("Paper"))
+        }
+        if (other.gameObject.CompareTag("BeePoly"))
+        {
+            E.SetActive(true);
+        }
+        if (other.gameObject.CompareTag("Paper"))
         {
             F.SetActive(true);
         }
@@ -189,8 +193,12 @@ public class PlayerSceneManager : MonoBehaviour
         if(other.gameObject.CompareTag("Golden Bee"))
         {
             F.SetActive(false);
-        } 
-        if(other.gameObject.CompareTag("Paper"))
+        }
+        if (other.gameObject.CompareTag("BeePoly"))
+        {
+            E.SetActive(false);
+        }
+        if (other.gameObject.CompareTag("Paper"))
         {
             F.SetActive(false);
         }

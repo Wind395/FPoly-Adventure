@@ -98,7 +98,7 @@ public class NPCs : MonoBehaviour
                     }
                     break;
                 case 2:
-                    if (gameObject.CompareTag("Golden Bee") && !GameManager.instance.isBee) {
+                    if (gameObject.CompareTag("BeePoly") && !GameManager.instance.isBee) {
                         chatboxUI.SetActive(true);
                         ConversationManager.Instance.LoadConversation("conversation3");
                     }

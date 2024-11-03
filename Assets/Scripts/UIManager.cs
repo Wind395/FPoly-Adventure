@@ -18,10 +18,11 @@ public class UIManager : MonoBehaviour
     public GameObject UI2;
     public SpriteRenderer boySpriteRenderer;
     public Sprite boy;
-    public AudioSource jumpscare;
+    public GameObject jumpscare;
     public GameObject jumpScareUI;
 
     public GameObject pauseUI;
+    public GameObject pauseBtn;
 
     private void Start()
     {
@@ -42,8 +43,7 @@ public class UIManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseUI.SetActive(true);
-            Time.timeScale = 0;
+            Pause();
         }
     }
 
@@ -104,8 +104,8 @@ public class UIManager : MonoBehaviour
         if (ConversationManager.nextConversation == 3 && ConversationManager.currentConversationIndex == 7) {
             boySpriteRenderer.sprite = boy;
             boySpriteRenderer.flipX = false;
-            yield return new WaitForSeconds(3);
-
+            yield return new WaitForSeconds(1);
+            jumpscare.SetActive(true);
             jumpScareUI.SetActive(true);
             yield return new WaitForSeconds(1);
             jumpScareUI.SetActive(false);
@@ -118,9 +118,17 @@ public class UIManager : MonoBehaviour
         GameManager.instance.ChangeScene("Menu");
     }
 
+    public void Pause()
+    {
+        pauseUI.SetActive(true);
+        pauseBtn.SetActive(false);
+        Time.timeScale = 0;
+    }
+
     public void Resume()
     {
         Time.timeScale = 1;
         pauseUI.SetActive(false);
+        pauseBtn.SetActive(true);
     }
 }

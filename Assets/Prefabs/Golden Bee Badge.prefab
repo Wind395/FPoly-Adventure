@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d7d488bd2f20445b0ac7bd184928cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemID: 
   paperInforFloor4: {fileID: 0}
   otherPaperInfor: {fileID: 0}
   fButton: {fileID: 0}
