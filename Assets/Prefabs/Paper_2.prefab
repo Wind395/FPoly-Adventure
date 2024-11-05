@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3905398694804293841}
   - component: {fileID: 3368687528284471201}
   - component: {fileID: 2810490002195255879}
-  - component: {fileID: 2365194926194644411}
+  - component: {fileID: 2318595386818953816}
   m_Layer: 0
   m_Name: Paper_2
   m_TagString: Paper
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2365194926194644411
+--- !u!114 &2318595386818953816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,10 +199,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2243493730586458974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38d7d488bd2f20445b0ac7bd184928cf, type: 3}
+  m_Script: {fileID: 11500000, guid: ad92a0c97b8f76e49a79ce6f462e2390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _itemID: p2
   paperInforFloor4: {fileID: 0}
   otherPaperInfor: {fileID: 0}
-  fButton: {fileID: 0}
+  fButton: {fileID: 4683316037839184282, guid: 48d8e29a065dbb34fb0def76b3398c11, type: 3}
+  pickUp: 0
+  isCollected: 0

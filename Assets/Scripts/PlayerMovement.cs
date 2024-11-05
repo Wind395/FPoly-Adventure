@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IMove
 {
     [SerializeField] private float speed;
 
@@ -41,11 +41,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate() {
         if (GameManager.instance.canRun) {
-            Moving();
+            Move();
         }
     }
 
-    private void Moving() {
+    public void Move() {
         float x =  Input.GetAxis("Horizontal");
         rb2d.velocity = new Vector2(speed * x, rb2d.velocity.y);
         animator.SetFloat("isRunning", Mathf.Abs(x));

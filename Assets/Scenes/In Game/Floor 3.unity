@@ -8371,6 +8371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golden Bee Badge (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5425297983739146826, guid: c4818be3927c60b48b09f735ebe27747, type: 3}
+      propertyPath: _itemID
+      value: b19
+      objectReference: {fileID: 0}
     - target: {fileID: 7374735299795372479, guid: c4818be3927c60b48b09f735ebe27747, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.55
@@ -13292,6 +13296,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golden Bee Badge (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5425297983739146826, guid: c4818be3927c60b48b09f735ebe27747, type: 3}
+      propertyPath: _itemID
+      value: b16
+      objectReference: {fileID: 0}
     - target: {fileID: 7374735299795372479, guid: c4818be3927c60b48b09f735ebe27747, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.13
@@ -13813,6 +13821,10 @@ PrefabInstance:
     - target: {fileID: 3111478001095063924, guid: c4818be3927c60b48b09f735ebe27747, type: 3}
       propertyPath: m_Name
       value: Golden Bee Badge
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425297983739146826, guid: c4818be3927c60b48b09f735ebe27747, type: 3}
+      propertyPath: _itemID
+      value: b14
       objectReference: {fileID: 0}
     - target: {fileID: 7374735299795372479, guid: c4818be3927c60b48b09f735ebe27747, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14774,6 +14786,10 @@ PrefabInstance:
     - target: {fileID: 3111478001095063924, guid: c4818be3927c60b48b09f735ebe27747, type: 3}
       propertyPath: m_Name
       value: Golden Bee Badge
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425297983739146826, guid: c4818be3927c60b48b09f735ebe27747, type: 3}
+      propertyPath: _itemID
+      value: b15
       objectReference: {fileID: 0}
     - target: {fileID: 7374735299795372479, guid: c4818be3927c60b48b09f735ebe27747, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15827,6 +15843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golden Bee Badge (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5425297983739146826, guid: c4818be3927c60b48b09f735ebe27747, type: 3}
+      propertyPath: _itemID
+      value: b18
+      objectReference: {fileID: 0}
     - target: {fileID: 7374735299795372479, guid: c4818be3927c60b48b09f735ebe27747, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.72
@@ -16026,6 +16046,10 @@ PrefabInstance:
     - target: {fileID: 3111478001095063924, guid: c4818be3927c60b48b09f735ebe27747, type: 3}
       propertyPath: m_Name
       value: Golden Bee Badge (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425297983739146826, guid: c4818be3927c60b48b09f735ebe27747, type: 3}
+      propertyPath: _itemID
+      value: b17
       objectReference: {fileID: 0}
     - target: {fileID: 7374735299795372479, guid: c4818be3927c60b48b09f735ebe27747, type: 3}
       propertyPath: m_LocalPosition.x

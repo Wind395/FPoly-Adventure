@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IMove
 {
 
     public Transform player; // Tham chiếu đến vị trí của nhân vật
@@ -29,6 +29,68 @@ public class Enemy : MonoBehaviour
     }
 
     void Update()
+    {
+        Move();
+    }
+    private bool canMove;
+    void FixedUpdate()
+    {
+        if (canMove)
+        {
+            // Di chuyển quái (đuổi theo hoặc lang thang)
+            rb.MovePosition((Vector2)transform.position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
+    }
+
+
+    // Hàm để quái lang thang qua lại khi chưa đuổi theo nhân vật
+    void Wander()
+    {
+        if (movingRight)
+        {
+            // Di chuyển sang phải
+            movement = Vector2.right * wanderSpeed;
+
+            // Nếu quái đã đạt đến giới hạn phải, đổi hướng sang trái
+            if (transform.position.x >= rightLimit)
+            {
+                movingRight = false;
+            }
+        }
+        else
+        {
+            // Di chuyển sang trái
+            movement = Vector2.left * wanderSpeed;
+
+            // Nếu quái đã đạt đến giới hạn trái, đổi hướng sang phải
+            if (transform.position.x <= leftLimit)
+            {
+                movingRight = true;
+            }
+        }
+    }
+
+    // Hiển thị phạm vi đuổi và giới hạn di chuyển  để dễ điều chỉnh
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, chaseRange); // Phạm vi đuổi theo
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, stopRange); // Phạm vi dừng lại gần nhân vật
+
+        // Vẽ đường di chuyển giới hạn
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(new Vector3(leftLimit, transform.position.y, 0), new Vector3(rightLimit, transform.position.y, 0)); // Giới hạn trái và phải
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ending"))
+        {
+            canMove = false;
+        }
+    }
+
+    public void Move()
     {
         // Tính khoảng cách giữa quái và nhân vật
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
@@ -81,66 +143,10 @@ public class Enemy : MonoBehaviour
             // Nếu nhân vật ra khỏi phạm vi quái
             if (hasPlayedEnemyMusic)
             {
-                MusicManager.instance.StopMusic(); 
+                MusicManager.instance.StopMusic();
                 hasPlayedEnemyMusic = false; // Reset lại khi quái không còn đuổi theo
                 MusicManager.instance.ResumeGameMusic(); // Phát lại nhạc game
             }
-        }
-    }
-    private bool canMove;
-    void FixedUpdate()
-    {
-        if (canMove)
-        {
-            // Di chuyển quái (đuổi theo hoặc lang thang)
-            rb.MovePosition((Vector2)transform.position + movement * moveSpeed * Time.fixedDeltaTime);
-        }
-    }
-
-    // Hàm để quái lang thang qua lại khi chưa đuổi theo nhân vật
-    void Wander()
-    {
-        if (movingRight)
-        {
-            // Di chuyển sang phải
-            movement = Vector2.right * wanderSpeed;
-
-            // Nếu quái đã đạt đến giới hạn phải, đổi hướng sang trái
-            if (transform.position.x >= rightLimit)
-            {
-                movingRight = false;
-            }
-        }
-        else
-        {
-            // Di chuyển sang trái
-            movement = Vector2.left * wanderSpeed;
-
-            // Nếu quái đã đạt đến giới hạn trái, đổi hướng sang phải
-            if (transform.position.x <= leftLimit)
-            {
-                movingRight = true;
-            }
-        }
-    }
-
-    // Hiển thị phạm vi đuổi và giới hạn di chuyển  để dễ điều chỉnh
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, chaseRange); // Phạm vi đuổi theo
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, stopRange); // Phạm vi dừng lại gần nhân vật
-
-        // Vẽ đường di chuyển giới hạn
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(new Vector3(leftLimit, transform.position.y, 0), new Vector3(rightLimit, transform.position.y, 0)); // Giới hạn trái và phải
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ending"))
-        {
-            canMove = false;
         }
     }
 }

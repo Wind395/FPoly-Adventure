@@ -18,7 +18,7 @@ public class RUN : MonoBehaviour
     {
         if (GameManager.instance.hasRead) {
             enemy.SetActive(true);
-            StartCoroutine(cameraShake.Shake(0.2f, 2f));
+            StartCoroutine(cameraShake.Shake(0.2f, 4f));
         }
     }
 }

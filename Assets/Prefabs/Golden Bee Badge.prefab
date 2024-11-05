@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8837414165889525349}
   - component: {fileID: 6787002370052679546}
   - component: {fileID: 1165180632569408370}
-  - component: {fileID: 8912391635492017728}
   - component: {fileID: 3468583703151202496}
+  - component: {fileID: 5425297983739146826}
   m_Layer: 0
   m_Name: Golden Bee Badge
   m_TagString: Golden Bee
@@ -147,22 +147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSprite: {fileID: -1532304658, guid: 5b1839201f15c9a44b3bbee185a9541c, type: 3}
   newSprite: {fileID: 331490420, guid: e968f060660363840b30144332e57d57, type: 3}
---- !u!114 &8912391635492017728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3111478001095063924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38d7d488bd2f20445b0ac7bd184928cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemID: 
-  paperInforFloor4: {fileID: 0}
-  otherPaperInfor: {fileID: 0}
-  fButton: {fileID: 0}
 --- !u!114 &3468583703151202496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,3 +197,15 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &5425297983739146826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3111478001095063924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00933a23e85cae44296d85142c16cd10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
